@@ -48,8 +48,44 @@
       linear-gradient(rgba(6,20,42,.78), rgba(6,20,42,.78)),
       url('background1.jpg') center/cover no-repeat;
   }
-  .section-navy .card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
-  .section-navy h2, .section-navy h3{color:#fff}
+ /* === Fur border for navy cards === */
+.section-navy .card {
+  position: relative;
+  background: rgba(255,255,255,.06);
+  border: none;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.section-navy .card::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 40%, transparent 70%) repeat;
+  background-size: 14px 14px;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* === Fur border for hero photo === */
+.hero-photo {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255,255,255,0.9) 40%, transparent 70%) repeat;
+  background-size: 14px 14px;
+  filter: blur(6px);
+  z-index: -1;
+}
+
 
   /* Light sections */
   .section-light{

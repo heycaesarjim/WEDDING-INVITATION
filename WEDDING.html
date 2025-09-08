@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caesar & Vera — Wedding Invitation</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0a1a33;
+    --navy-deep:#06142a;
+    --white:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#1f2a44;
+    --gold:#d4af37;
+    --gold-soft:#e6c76c;
+    --muted:#9fb0ca;
+    --radius:22px;
+    --shadow-lg:0 18px 45px rgba(3,8,20,.35);
+    --shadow-md:0 10px 25px rgba(3,8,20,.25);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+  }
+
+  /* ——— Global sections ——— */
+  .section{
+    padding:72px 20px;
+  }
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  /* Navy silk sections */
+  .section-navy{
+    color:var(--white);
+    background:
+      linear-gradient(rgba(6,20,42,.78), rgba(6,20,42,.78)),
+      url('your-photo.jpg') center/cover fixed no-repeat;
+  }
+  .section-navy .card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
+  .section-navy h2, .section-navy h3{color:#fff}
+
+  /* Light sections */
+  .section-light{
+    background:var(--paper);
+  }
+  .card{
+    background:#fff;
+    border:1px solid rgba(10,26,51,.08);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-md);
+    padding:26px;
+  }
+
+  /* Headings */
+  .eyebrow{
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    font-weight:600;
+    opacity:.8;
+    font-size:.78rem;
+  }
+  h1{
+    font-family:'Great Vibes',cursive;
+    font-size:56px;
+    margin: 0 0 6px;
+  }
+  h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:700;
+    font-size:36px;
+    margin:0 0 16px;
+  }
+  h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0 0 12px;
+  }
+  p{line-height:1.7; margin:0 0 14px}
+
+  /* ——— HERO ——— */
+  .hero{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:28px;
+    align-items:center;
+  }
+  .hero-photo{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow-lg);
+    border:1px solid rgba(255,255,255,.18);
+  }
+  .hero-photo img{display:block; width:100%; height:100%; object-fit:cover}
+  .date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    opacity:.9;
+  }
+  .countdown{
+    display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;
+  }
+  .count{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:16px;
+    padding:12px 14px;
+    text-align:center;
+    min-width:86px;
+  }
+  .count b{display:block; font-size:24px}
+  .count span{font-size:12px; letter-spacing:.15em; text-transform:uppercase; opacity:.85}
+
+  /* ——— TIMELINE ——— */
+  .timeline{
+    display:grid; gap:14px;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .pill{
+    border-radius:16px;
+    padding:16px;
+    text-align:center;
+    font-weight:600;
+  }
+  .pill .t{display:block; font-size:12px; opacity:.85; letter-spacing:.12em; text-transform:uppercase}
+  .pill .h{display:block; font-size:20px; margin-top:6px}
+
+  /* ——— VENUES ——— */
+  .grid-2{display:grid; gap:22px; grid-template-columns:repeat(2,minmax(0,1fr))}
+  .frame{
+    border-radius:18px; overflow:hidden; border:1px solid rgba(10,26,51,.1);
+  }
+  .frame img{width:100%; height:260px; object-fit:cover; display:block}
+
+  /* ——— ENTOURAGE ——— */
+  .columns{
+    display:grid; gap:22px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  ul{margin:0; padding-left:18px}
+
+  /* ——— DRESS CODE ——— */
+  .swatches{display:flex; gap:12px; margin:12px 0 6px}
+  .sw{width:48px; height:48px; border-radius:50%; border:2px solid rgba(0,0,0,.08)}
+  .sw.navy{background:#0b2048}
+  .sw.white{background:#ffffff}
+  .sw.gold{background:#d4af37}
+
+  /* ——— CTA / RSVP ——— */
+  .cta{
+    display:flex; gap:14px; flex-wrap:wrap; align-items:center
+  }
+  .btn{
+    background:var(--gold); color:var(--navy);
+    padding:12px 18px; border:none; border-radius:12px;
+    font-weight:700; cursor:pointer; box-shadow:var(--shadow-md);
+    text-decoration:none; display:inline-block
+  }
+  .btn:hover{background:var(--gold-soft)}
+
+  /* ——— Music button ——— */
+  .music-control{
+    position:fixed; right:20px; bottom:20px; z-index:1000;
+    width:60px; height:60px; border-radius:50%;
+    border:1px solid rgba(0,0,0,.12);
+    background:var(--gold); color:var(--navy);
+    display:grid; place-items:center; font-size:24px;
+    box-shadow:var(--shadow-lg); cursor:pointer; transition:.25s ease;
+  }
+  .music-control:hover{transform:translateY(-2px); background:var(--gold-soft)}
+
+  /* ——— Footer ——— */
+  footer{padding:36px 20px; text-align:center; color:#cdd8ee}
+
+  /* Responsive */
+  @media (max-width: 900px){
+    .hero{grid-template-columns:1fr; text-align:center}
+    .timeline{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-2{grid-template-columns:1fr}
+    .columns{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO (Navy Silk) ===== -->
+<section class="section section-navy">
+  <div class="container hero">
+    <div class="hero-photo">
+      <img src="hero.jpg" alt="Caesar & Vera">
+    </div>
+    <div>
+      <div class="eyebrow">You're invited to the wedding of</div>
+      <h1>Caesar <span style="color:var(--gold)">&</span> Vera</h1>
+      <div class="date">December 23, 2025 · Manila, Philippines</div>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown">
+        <div class="count"><b id="cd-days">0</b><span>Days</span></div>
+        <div class="count"><b id="cd-hours">0</b><span>Hours</span></div>
+        <div class="count"><b id="cd-mins">0</b><span>Minutes</span></div>
+        <div class="count"><b id="cd-secs">0</b><span>Seconds</span></div>
+      </div>
+
+      <div class="cta" style="margin-top:18px">
+        <a class="btn" href="#rsvp">RSVP</a>
+        <span style="opacity:.9">Dress: Semi-Formal · Colors: Navy, White & Gold</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR STORY (Light) ===== -->
+<section class="section section-light">
+  <div class="container">
+    <h2>Our Story</h2>
+    <div class="card">
+      <p>It all started with a simple chat, a few exchanged emojis, and small talk between classes. Neither of us thought much of it at first—but one message turned into daily conversations, silly jokes, and slowly, something deeper.</p>
+      <p>What began as a small online connection grew into something real—filled with shared food trips, study sessions, and moments we’ll never forget. We’ve been through ups, downs, long distances, and life changes—but somehow, we always found our way back to each other.</p>
+      <p>And now, after all those years and memories, we’re finally here—ready to start our forever. 💙</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE (Navy) ===== -->
+<section class="section section-navy">
+  <div class="container">
+    <h2>Wedding Timeline</h2>
+    <div class="timeline">
+      <div class="pill card">
+        <span class="t">Arrival</span>
+        <span class="h">1:30 PM</span>
+      </div>
+      <div class="pill card">
+        <span class="t">Ceremony</span>
+        <span class="h">3:00 PM</span>
+      </div>
+      <div class="pill card">
+        <span class="t">Reception</span>
+        <span class="h">4:00 PM</span>
+      </div>
+      <div class="pill card">
+        <span class="t">After Party</span>
+        <span class="h">7:00 PM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VENUE CARDS (Light) ===== -->
+<section class="section section-light">
+  <div class="container grid-2">
+    <div class="card">
+      <h3>Ceremony</h3>
+      <div class="frame"><img src="ceremony.jpg" alt="Ceremony Venue"></div>
+      <p>Saints Peter & Paul Parish</p>
+      <p><a class="btn" href="https://www.google.com/maps/place/Saints+Peter+%26+Paul+Parish+Church+-+Calasiao,+Pangasinan+(Archdiocese+of+Lingayen-Dagupan)/@16.0099038,120.3539526,16z/data=!4m6!3m5!1s0x339142c5059628d7:0x28fd05e4a852369a!8m2!3d16.0100042!4d120.3568329!16s%2Fm%2F0pc5kpx?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">View Map</a></p>
+    </div>
+    <div class="card">
+      <h3>Reception</h3>
+      <div class="frame"><img src="reception.png" alt="Reception Venue"></div>
+      <p>Village Royale</p>
+      <p><a class="btn" href="https://www.google.com/maps/place/The+Village+Royale/@16.0185219,120.3715103,17z/data=!3m1!4b1!4m6!3m5!1s0x33914316b3c24c2b:0xcaff2f4cf9c5fce9!8m2!3d16.0185168!4d120.3740852!16s%2Fg%2F11v0nttpmj?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">View Map</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENTOURAGE (Navy) ===== -->
+<section class="section section-navy">
+  <div class="container">
+    <h2>Entourage</h2>
+    <div class="columns">
+      <div class="card">
+        <h3>Parents of the Bride</h3>
+        <ul>
+          <li>Father: Mr. Luisito C. Carlos</li>
+          <li>Mother: Mrs. Marissa S. Carlos</li>
+        </ul>
+        <h3 style="margin-top:18px">Parents of the Groom</h3>
+        <ul>
+          <li>Father: Mr. Alfredo C. Romero</li>
+          <li>Mother: Mrs. Megierene V. Romero</li>
+        </ul>
+        <h3 style="margin-top:18px">Principal Sponsors</h3>
+        <ul>
+          <li>Hon. Vicente A. Santiago</li>
+          <li>Ms. Cecilia T. Manalili</li>
+          <li>Mr. Ramon G. Villanueva</li>
+          <li>Ms. Teresa M. Francisco</li>
+          <li>… (edit this list)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Secondary Sponsors &amp; Court</h3>
+        <ul>
+          <li>Veil: Ryan Joseph M. Ramirez &amp; Christine Joy D. Castillo</li>
+          <li>Cord: Mark Angelo P. Santos &amp; Janine Mae T. Enriquez</li>
+          <li>Candle: Patrick John G. Mendoza &amp; Dianne Rose F. Villanueva</li>
+          <li>Ring Bearer: Jared Luis E. Gonzales</li>
+          <li>Bible Bearer: Nathaniel P. Cruz</li>
+          <li>Flower Girls: Alexa Marie T. Castillo, Sophia Elaine D. Ramirez, …</li>
+        </ul>
+        <div class="columns" style="grid-template-columns:1fr 1fr; margin-top:16px">
+          <div>
+            <h3>Bridesmaids</h3>
+            <ul>
+              <li>Karina Faye T. Sarmiento</li>
+              <li>Alyssa Joy G. Fernandez</li>
+              <li>…</li>
+            </ul>
+            <p><b>Maid of Honor:</b> Rana Louise S. Carlos</p>
+          </div>
+          <div>
+            <h3>Groomsmen</h3>
+            <ul>
+              <li>Joshua Liam D. Gonzales</li>
+              <li>John Patrick P. Mendoza</li>
+              <li>…</li>
+            </ul>
+            <p><b>Best Man:</b> Engr. Carlo Jon V. Romero</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DRESS CODE (Light) ===== -->
+<section class="section section-light">
+  <div class="container card">
+    <h2>Dress Code</h2>
+    <p><b>Guests:</b> Formal / Semi-Formal · Colors: Navy, White, and Gold</p>
+    <div class="swatches">
+      <div class="sw navy" title="Navy"></div>
+      <div class="sw white" title="White"></div>
+      <div class="sw gold" title="Gold"></div>
+    </div>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="frame"><img src="gallery-1.jpg" alt="Outfit inspiration 1"></div>
+      <div class="frame"><img src="gallery-2.jpg" alt="Outfit inspiration 2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOTES (Navy) ===== -->
+<section class="section section-navy">
+  <div class="container">
+    <div class="grid-2">
+      <div class="card">
+        <h3>Gift Note</h3>
+        <p>Your prayers, love, laughter, and company are all we ask for; nevertheless, if you would like to bestow a gift upon us, a monetary gift would be greatly appreciated as we start our journey.</p>
+      </div>
+      <div class="card">
+        <h3>Unplugged Ceremony</h3>
+        <p>The greatest gift you can give us is to be truly present. During the ceremony, please turn off all phones and cameras and enjoy this special moment with us.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:22px">
+      <h3>Our Hashtag</h3>
+      <p>Help us capture the love! Please tag your photos and help us document our best day ever.</p>
+      <p style="font-weight:700; font-size:18px">#HappilyEverCaesarAndVera</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RSVP (Light) ===== -->
+<section id="rsvp" class="section section-light">
+  <div class="container card" style="text-align:center">
+    <h2>RSVP</h2>
+    <p>Please confirm your attendance by December 1, 2025.</p>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeml2OBNxBG1QthtEJaNp_s_flIaaPCKesGVIR8BuEh8xCYKA/viewform?usp=dialog" target="_blank" rel="noopener">Open RSVP Form</a>
+  </div>
+</section>
+
+<footer class="section-navy">
+  <div class="container">
+    Made with love by Caesar &amp; Vera • See you on <b>December 23, 2025</b> 💫
+  </div>
+</footer>
+
+<!-- ===== Background Music ===== -->
+<audio id="bg-music" src="music.mp3" loop autoplay></audio>
+<button class="music-control" id="music-btn" title="Play/Pause music">⏸</button>
+
+<script>
+  // Countdown to Dec 23, 2025 14:00 local (change if needed)
+  (function(){
+    const target = new Date('2025-12-23T14:00:00');
+    const $d = id('cd-days'), $h = id('cd-hours'), $m = id('cd-mins'), $s = id('cd-secs');
+    function id(x){return document.getElementById(x)}
+    function tick(){
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+      const d = Math.floor(diff/86400000); diff%=86400000;
+      const h = Math.floor(diff/3600000); diff%=3600000;
+      const m = Math.floor(diff/60000); diff%=60000;
+      const s = Math.floor(diff/1000);
+      $d.textContent=d; $h.textContent=h; $m.textContent=m; $s.textContent=s;
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+
+  // Music controls + autoplay fallback
+  const music = document.getElementById('bg-music');
+  const btn = document.getElementById('music-btn');
+
+  function setBtn(){ btn.textContent = music.paused ? '⏸' : '⏸'; }
+
+  btn.addEventListener('click', () => {
+    if (music.paused) { music.play().catch(()=>{}); }
+    else { music.pause(); }
+    setBtn();
+  });
+
+  window.addEventListener('load', () => {
+    music.play().catch(() => {
+      // Autoplay blocked → start on first interaction
+      window.addEventListener('pointerdown', () => {
+        music.play().catch(()=>{});
+        setBtn();
+      }, { once:true });
+    });
+  });
+  setBtn();
+</script>
+</body>
+</html>

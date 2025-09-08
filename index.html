@@ -433,7 +433,7 @@
   const music = document.getElementById('bg-music');
   const btn = document.getElementById('music-btn');
 
-  function setBtn(){ btn.textContent = music.paused ? '▶' : '⏸'; }
+  function setBtn(){ btn.textContent = music.paused ? '▶' : '⏹'; }
 
   btn.addEventListener('click', () => {
     if (music.paused) { music.play().catch(()=>{}); }

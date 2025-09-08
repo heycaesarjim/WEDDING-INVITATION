@@ -409,7 +409,7 @@
 
 <!-- ===== Background Music ===== -->
 <audio id="bg-music" src="music.mp3" loop autoplay></audio>
-<button class="music-control" id="music-btn" title="Play/Pause music">⏸</button>
+<button class="music-control" id="music-btn" title="Play/Pause music">⏹</button>
 
 <script>
   // Countdown to Dec 23, 2025 14:00 local (change if needed)
@@ -433,7 +433,7 @@
   const music = document.getElementById('bg-music');
   const btn = document.getElementById('music-btn');
 
-  function setBtn(){ btn.textContent = music.paused ? '⏸' : '⏸'; }
+  function setBtn(){ btn.textContent = music.paused ? '▶' : '⏸'; }
 
   btn.addEventListener('click', () => {
     if (music.paused) { music.play().catch(()=>{}); }

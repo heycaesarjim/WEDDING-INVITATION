@@ -54,12 +54,12 @@
   .container{ max-width:1100px; margin:0 auto; }
 
   /* Make navy sections use overlay only (so body bg shows through) */
-  .section-navy{
-    color:var(--white);
-    background: linear-gradient(rgba(6,20,42,.82), rgba(6,20,42,.82));
-    border-top: 1px solid rgba(255,255,255,.08);
-    border-bottom: 1px solid rgba(0,0,0,.15);
-    backdrop-filter: blur(0.5px);
+  .section-navy {
+    background: url('background2.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    position: relative;
+    z-index: 1;
   }
   .section-navy .card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
   .section-navy h2, .section-navy h3{color:#fff}

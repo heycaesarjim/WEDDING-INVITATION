@@ -104,6 +104,16 @@
   h3{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; margin:0 0 12px; }
   p{ line-height:1.7; margin:0 0 14px }
 
+  /* Logo */
+  .logo {
+  display: block;
+  margin: 0 auto 20px; /* center + space below */
+  max-width: 180px;   /* adjust size */
+  height: auto;       /* keep proportions */
+  border-radius: 50%; /* keep circular */
+  object-fit: contain; /* prevent cropping */
+}
+
   /* Hero */
   .hero{
     display:grid; grid-template-columns:1.2fr 1fr;
@@ -209,7 +219,7 @@
 <section class="section section-navy" data-animate>
   <div class="container">
     <div class="brand">
-      <img class="brand-logo" src="logo2.png" alt="Caesar & Vera monogram" onerror="this.style.display='none'">
+      <img src="logo2.png" alt="Caesar & Vera Logo" class="logo">
       <h1 class="brand-title">Caesar &amp; Vera’s Wedding</h1>
     </div>
 

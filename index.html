@@ -107,16 +107,32 @@
   /* Hero layout: slideshow on the left, details on the right */
   .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
 
-  .slideshow {
-    width: 100%;
-    max-width: 100%;
-    height: 600px; /* increased height */
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    margin: 0 auto 18px;
+.slideshow {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
+  .slideshow {
+    height: 400px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .slideshow {
+    height: 280px;
+  }
+}
 
   /* use simpler fade via active class + transition */
   .slides img {

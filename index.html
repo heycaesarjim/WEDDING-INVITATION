@@ -118,12 +118,14 @@
 /* Slideshow */
 .slideshow {
   width: 100%;
-  aspect-ratio: 3/4;      /* 👈 Taller by default */
-  max-height: 80vh;       /* never taller than screen */
   position: relative;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 0 25px rgba(0,0,0,0.6);
+
+  /* Responsive baseline */
+  aspect-ratio: 16/9;
+  max-height: 90vh;
 }
 
 .slides img {
@@ -132,32 +134,38 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  animation: fade 25s infinite;
+  transition: opacity 1s ease;
 }
 
-/* Desktop: wider slideshow (landscape feel) */
-@media (min-width: 901px) {
-  .slideshow {
-    aspect-ratio: 16/9;   /* nice wide rectangle */
-    max-height: 1000px;
-  }
+.slides img.active {
+  opacity: 1;
+  z-index: 2;
 }
 
 /* Tablet */
-@media (max-width: 900px) and (min-width: 601px) {
+@media (max-width: 900px) {
   .slideshow {
-    aspect-ratio: 4/3;    /* moderate */
-    max-height: 500px;
+    aspect-ratio: 4/3;
+    max-height: 70vh; /* shrink proportionally */
   }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   .slideshow {
-    aspect-ratio: 3/4;    /* taller portrait style */
-    max-height: 400px;
+    aspect-ratio: auto;   /* let it be flexible */
+    width: 100%;
+    height: auto;         /* natural scaling */
+  }
+
+  .slides img {
+    position: relative;   /* no absolute overlap */
+    display: block;
+    width: 100%;
+    height: auto;
   }
 }
+
   .slides img.active { opacity: 1; z-index: 2; }
 
   /* Overlay bar */

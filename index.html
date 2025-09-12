@@ -101,52 +101,47 @@
   h2{ font-family:'Cormorant Garamond',serif; font-weight:700; font-size:36px; margin:0 0 16px; }
   h3{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:24px; margin:0 0 12px; }
   p{ line-height:1.7; margin:0 0 14px }
-  
-  /* === FIXED Slideshow (only changed) === */
-  /* Hero grid: slideshow left, details right */
+
+  /* ===== HERO (slideshow + details) ===== */
   .hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* slideshow left, details right */
     gap: 30px;
     align-items: start;
   }
 
-.slideshow {
-  width: 100%;
-  height: 100vh;       /* takes 100% of screen height */
-  max-height: 700px;  /* cap height on large screens */
-  min-height: 300px;  /* ensure not too small */
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.6);
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .slideshow {
-    height: 50vh; /* tablets */
+  /* Make columns stack on smaller screens */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; text-align:center; }
   }
-}
-@media (max-width: 600px) {
+
+  /* Responsive slideshow: uses aspect-ratio so it scales */
   .slideshow {
-    height: 40vh; /* phones */
+    width: 100%;
+    aspect-ratio: 16/9;       /* responsive ratio */
+    max-height: 80vh;        /* prevents extreme tall on very tall screens */
     min-height: 220px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    margin: 0 auto 18px;
   }
-}
 
-
-  /* slide images use active class + transition */
+  /* Slide images — absolute, stacked; visibility controlled via JS .active */
   .slides img {
     position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
+    will-change: opacity, transform;
   }
-  .slides img.active { opacity: 1; }
+  .slides img.active { opacity: 1; z-index: 2; }
 
+  /* Overlay bar */
   .overlay {
     position: absolute;
     bottom: 20px;
@@ -161,6 +156,7 @@
     border-radius: 10px;
     z-index: 10;
   }
+
   .date{ font-family:'Cormorant Garamond',serif; font-size:20px; opacity:.9; }
 
   /* Countdown */
@@ -210,7 +206,7 @@
     position:fixed; right:20px; bottom:20px; z-index:1000;
     width:60px; height:60px; border-radius:50%;
     border:1px solid rgba(0,0,0,.12);
-    background:var(--gold); color:#000;
+    background:var(--gold); color:#000; /* pure black icon */
     display:grid; place-items:center; font-size:24px;
     box-shadow:var(--shadow-lg); cursor:pointer; transition:.25s ease;
   }
@@ -234,17 +230,16 @@
   [data-animate]{ opacity:0; transform:translateY(40px); transition:opacity .8s ease, transform .8s ease; }
   [data-animate].visible{ opacity:1; transform:none; }
 
-  /* Responsive */
+  /* Responsive tweaks */
   @media (max-width: 900px){
-    .hero { grid-template-columns: 1fr; text-align:center }
     .timeline{ grid-template-columns:repeat(2,minmax(0,1fr)) }
     .grid-2{ grid-template-columns:1fr }
     .columns{ grid-template-columns:1fr }
     .brand-title{ font-size:44px; }
-    .slideshow{ height: 400px; } /* tablet */
+    .slideshow{ aspect-ratio: 4/3; } /* slightly taller on tablet/mobile */
   }
   @media (max-width: 600px){
-    .slideshow{ height: 280px; } /* mobile */
+    .slideshow{ aspect-ratio: 3/4; min-height: 220px; } /* portrait-ish on phones */
   }
 </style>
 </head>
@@ -258,14 +253,15 @@
   <div class="container">
     <div class="hero">
       <!-- Left: Slideshow -->
-      <div class="slideshow" id="slideshow">
-        <div class="slides">
+      <div class="slideshow" id="slideshow" aria-label="Slideshow">
+        <div class="slides" aria-hidden="false">
           <img src="hero1.jpg" alt="Slide 1" class="active">
           <img src="hero2.jpg" alt="Slide 2">
           <img src="hero3.jpg" alt="Slide 3">
           <img src="hero4.jpg" alt="Slide 4">
           <img src="hero1.jpg" alt="Slide 5">
         </div>
+        <div class="overlay">Caesar & Vera — December 23, 2025</div>
       </div>
 
       <!-- Right: Details -->
@@ -483,14 +479,15 @@
 <button class="music-control" id="music-btn" title="Play/Stop music">⏹</button>
 
 <script>
-  // --- Slideshow (cycles + swipe + pause on hover) ---
+  // --- Slideshow (auto-advance + swipe + pause on hover) ---
   (function(){
-    const slides = document.querySelectorAll('.slides img');
     const slideshowEl = document.getElementById('slideshow');
+    if (!slideshowEl) return;
+    const slides = Array.from(slideshowEl.querySelectorAll('.slides img'));
     if (!slides.length) return;
 
     let current = 0;
-    slides[current].classList.add('active');
+    slides.forEach((s,i)=> s.classList.toggle('active', i===0));
 
     function show(index){
       slides[current].classList.remove('active');
@@ -500,32 +497,34 @@
 
     let interval = setInterval(()=> show(current + 1), 5000);
 
+    // pause/resume on hover (desktop)
+    slideshowEl.addEventListener('mouseenter', () => clearInterval(interval));
+    slideshowEl.addEventListener('mouseleave', () => {
+      clearInterval(interval);
+      interval = setInterval(()=> show(current + 1), 5000);
+    });
+
     // touch swipe
     let startX = 0;
     slideshowEl.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
     slideshowEl.addEventListener('touchend', e => {
       const endX = e.changedTouches[0].clientX;
       const diff = startX - endX;
-      if (Math.abs(diff) > 50) {
+      if (Math.abs(diff) > 40) {
         if (diff > 0) show(current + 1); else show(current - 1);
       }
+      // restart interval
       clearInterval(interval);
       interval = setInterval(()=> show(current + 1), 5000);
     }, {passive:true});
-
-    // pause on mouseenter, resume on leave
-    slideshowEl.addEventListener('mouseenter', () => clearInterval(interval));
-    slideshowEl.addEventListener('mouseleave', () => {
-      clearInterval(interval);
-      interval = setInterval(()=> show(current + 1), 5000);
-    });
   })();
 
   // Countdown (Dec 23, 2025 14:00 local)
   (function(){
-    function id(x){return document.getElementById(x)}
     const target = new Date('2025-12-23T14:00:00');
+    function id(x){return document.getElementById(x)}
     const $d = id('cd-days'), $h = id('cd-hours'), $m = id('cd-mins'), $s = id('cd-secs');
+    if (!$d) return;
     function tick(){
       const now = new Date();
       let diff = Math.max(0, target - now);
@@ -570,10 +569,10 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-  // Sparkles generator (gentle & random)
+  // Sparkles generator
   (function makeSparkles(){
     const layer = document.querySelector('.sparkles');
-    const count = 90; // adjust density
+    const count = 90;
     for(let i=0;i<count;i++){
       const s = document.createElement('span');
       s.style.left = Math.random()*100 + '%';

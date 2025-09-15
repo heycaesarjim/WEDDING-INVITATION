@@ -105,51 +105,63 @@
 /* Keep desktop layout as is */
 .hero {
   display: flex;
-  align-items: stretch; /* both columns same height */
+  align-items: stretch; /* make both equal height */
   justify-content: center;
   gap: 40px;
   padding: 40px;
-  flex-wrap: wrap; /* stack if space is too tight */
+  flex-wrap: wrap; /* allow stacking if too narrow */
 }
 
-/* Shared card style */
-.slideshow,
-.details {
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* soft shadow */
-  overflow: hidden; /* keeps content inside rounded corners */
-  border: 3px solid gold; /* ✨ elegant gold border */
-}
-
-/* Slideshow column */
+/* Slideshow card */
 .slideshow {
   flex: 1 1 55%; /* ~55% width */
   max-width: 600px;
   min-width: 300px;
   display: flex;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border: 3px solid gold;
+  overflow: hidden;
 }
 
 .slideshow img {
   width: 100%;
   height: 100%;
-  max-height: none;
   object-fit: cover;
   object-position: center;
 }
 
-/* Details column */
+/* Details card (crest + title + text) */
 .details {
   flex: 1 1 40%; /* ~40% width */
   max-width: 500px;
   min-width: 280px;
   color: white;
-  text-align: left;
+  text-align: center;
   padding: 30px;
-  background: url('background1.png') center/cover no-repeat;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border: 3px solid gold;
+  background: url('images/navy-silk.jpg') center/cover no-repeat;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Crest inside details */
+.details .crest {
+  display: block;
+  margin: 0 auto 15px auto;
+  max-width: 120px;
+}
+
+/* Title text */
+.details h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: gold;
+  margin-bottom: 15px;
 }
 
 /* Mobile view */
@@ -175,12 +187,11 @@
   }
 
   .details {
-    background: none;
-    text-align: center;
+    background: none; /* silk bg only desktop */
     padding: 15px;
   }
 }
-  
+
   .title {
     order: 1;
     text-align: center;

@@ -126,33 +126,23 @@
   margin: auto;
 }
 
-/* Slides */
+/* All slides stacked */
 .slides img {
-  display: none;
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
-  height: auto;       /* auto height based on image ratio */
-  object-fit: cover;  /* crop nicely if needed */
+  height: auto;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
+/* Show active */
 .slides img.active {
-  display: block;
+  opacity: 1;
+  position: relative; /* active image takes height */
 }
-
-/* Tablet */
-@media (max-width: 900px) {
-  .slideshow {
-    border-radius: 10px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .slideshow {
-    border-radius: 8px;
-  }
-}
-  .slides img.active { opacity: 1; z-index: 2; }
-
+  
   /* Overlay bar */
   .overlay {
     position: absolute;
@@ -491,44 +481,43 @@
 
 <script>
   // --- Slideshow (auto-advance + swipe + pause on hover) ---
-  (function(){
-    const slideshowEl = document.getElementById('slideshow');
-    if (!slideshowEl) return;
-    const slides = Array.from(slideshowEl.querySelectorAll('.slides img'));
-    if (!slides.length) return;
+(function(){
+  const slideshowEl = document.getElementById('slideshow');
+  if (!slideshowEl) return;
+  const slides = Array.from(slideshowEl.querySelectorAll('.slides img'));
+  if (!slides.length) return;
 
-    let current = 0;
-    slides.forEach((s,i)=> s.classList.toggle('active', i===0));
+  let current = 0;
+  slides.forEach((s,i)=> s.classList.toggle('active', i===0));
 
-    function show(index){
-      slides[current].classList.remove('active');
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add('active');
+  function show(index){
+    slides[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  let interval = setInterval(()=> show(current + 1), 5000);
+
+  // Pause on hover
+  slideshowEl.addEventListener('mouseenter', () => clearInterval(interval));
+  slideshowEl.addEventListener('mouseleave', () => {
+    clearInterval(interval);
+    interval = setInterval(()=> show(current + 1), 5000);
+  });
+
+  // Swipe for mobile
+  let startX = 0;
+  slideshowEl.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+  slideshowEl.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) show(current + 1); else show(current - 1);
     }
-
-    let interval = setInterval(()=> show(current + 1), 5000);
-
-    // pause/resume on hover (desktop)
-    slideshowEl.addEventListener('mouseenter', () => clearInterval(interval));
-    slideshowEl.addEventListener('mouseleave', () => {
-      clearInterval(interval);
-      interval = setInterval(()=> show(current + 1), 5000);
-    });
-
-    // touch swipe
-    let startX = 0;
-    slideshowEl.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
-    slideshowEl.addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) show(current + 1); else show(current - 1);
-      }
-      // restart interval
-      clearInterval(interval);
-      interval = setInterval(()=> show(current + 1), 5000);
-    }, {passive:true});
-  })();
+    clearInterval(interval);
+    interval = setInterval(()=> show(current + 1), 5000);
+  }, {passive:true});
+})();
 
   // Countdown (Dec 23, 2025 14:00 local)
   (function(){

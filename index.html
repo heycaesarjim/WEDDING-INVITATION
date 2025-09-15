@@ -105,18 +105,82 @@
 /* Keep desktop layout as is */
 .hero {
   display: flex;
-  align-items: center;
+  align-items: stretch; /* both columns same height */
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap; /* stack if space is too tight */
+}
+
+/* Shared card style */
+.slideshow,
+.details {
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* soft shadow */
+  overflow: hidden; /* keeps content inside rounded corners */
+  border: 3px solid gold; /* ✨ elegant gold border */
+}
+
+/* Slideshow column */
+.slideshow {
+  flex: 1 1 55%; /* ~55% width */
+  max-width: 600px;
+  min-width: 300px;
+  display: flex;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Details column */
+.details {
+  flex: 1 1 40%; /* ~40% width */
+  max-width: 500px;
+  min-width: 280px;
+  color: white;
+  text-align: left;
+  padding: 30px;
+  background: url('images/navy-silk.jpg') center/cover no-repeat;
+
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-/* Mobile: stack crest/title first, slideshow second, details last */
+/* Mobile view */
 @media (max-width: 768px) {
   .hero {
-    display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
   }
 
+  .slideshow,
+  .details {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: unset;
+    height: auto;
+  }
+
+  .slideshow img {
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+  }
+
+  .details {
+    background: none;
+    text-align: center;
+    padding: 15px;
+  }
+}
+  
   .title {
     order: 1;
     text-align: center;

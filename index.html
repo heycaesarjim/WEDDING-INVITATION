@@ -154,17 +154,23 @@
   margin: auto;
 }
 
-/* All slides stacked */
-.slides img {
-  position: absolute;
-  top: 0; left: 0;
+/* Slideshow images */
+.slideshow img {
   width: 100%;
   height: auto;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  max-height: 500px;   /* keeps desktop images from being too tall */
+  object-fit: cover;   /* crops evenly instead of squeezing */
+  object-position: center; /* keeps faces centered */
+  border-radius: 15px;
 }
 
+/* Mobile view – allow natural height */
+@media (max-width: 768px) {
+  .slideshow img {
+    max-height: none;
+    object-fit: contain; /* show full photo in smaller screens */
+  }
+}
 
 /* Show active */
 .slides img.active {

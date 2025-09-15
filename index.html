@@ -497,7 +497,7 @@
     slides[current].classList.add('active');
   }
 
-  let interval = setInterval(()=> show(current + 1), 3000); // 3 seconds per slide
+  let interval = setInterval(()=> show(current + 1), 5000);
 
   // Pause on hover
   slideshowEl.addEventListener('mouseenter', () => clearInterval(interval));

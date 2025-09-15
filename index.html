@@ -134,7 +134,7 @@
   height: auto;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out; /* faster fade */
+  transition: opacity 1s ease-in-out;
 }
 
 
@@ -497,7 +497,7 @@
     slides[current].classList.add('active');
   }
 
-  let interval = setInterval(()=> show(current + 1), 5000);
+  let interval = setInterval(()=> show(current + 1), 3000);
 
   // Pause on hover
   slideshowEl.addEventListener('mouseenter', () => clearInterval(interval));

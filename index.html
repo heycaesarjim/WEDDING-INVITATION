@@ -609,22 +609,44 @@
 <button class="music-control" id="music-btn" title="Play/Stop music">⏹</button>
 
 <script>
-  // --- Slideshow (auto-advance + swipe + pause on hover) ---
 (function(){
-  const slideshowEl = document.getElementById('slideshow');
-  if (!slideshowEl) return;
-  const slides = Array.from(slideshowEl.querySelectorAll('.slides img'));
-  if (!slides.length) return;
-
+  const slideshow = document.querySelector(".slideshow");
+  if (!slideshow) return;
+  const slides = slideshow.querySelectorAll("img");
   let current = 0;
-  slides.forEach((s,i)=> s.classList.toggle('active', i===0));
+  let interval;
 
-  function show(index){
-    slides[current].classList.remove('active');
+  function show(index) {
+    slides[current].classList.remove("active");
     current = (index + slides.length) % slides.length;
-    slides[current].classList.add('active');
+    slides[current].classList.add("active");
   }
 
+  function start() {
+    interval = setInterval(() => show(current + 1), 4000);
+  }
+  function stop() {
+    clearInterval(interval);
+  }
+
+  // init
+  slides[0].classList.add("active");
+  start();
+
+  // pause on hover
+  slideshow.addEventListener("mouseenter", stop);
+  slideshow.addEventListener("mouseleave", start);
+
+  // swipe on mobile
+  let startX = 0;
+  slideshow.addEventListener("touchstart", e => startX = e.touches[0].clientX, {passive:true});
+  slideshow.addEventListener("touchend", e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) > 40) {
+      diff < 0 ? show(current + 1) : show(current - 1);
+    }
+  }, {passive:true});
+})();
   let interval = setInterval(()=> show(current + 1), 3000);
 
   // Pause on hover

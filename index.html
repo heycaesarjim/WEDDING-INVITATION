@@ -1,33 +1,31 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="logo.png" />
-  <title>Caesar & Vera — Wedding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    :root{
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="logo.png" />
+    <title>Caesar & Vera — Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      :root{
       --navy: #0b132b;
       --cream: #faf3e0;
       --gold: #c6a664;
       --max-width: 1100px;
       --nav-height: 76px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
       margin:0;
       font-family:'Cormorant Garamond', serif;
       color:var(--navy);
       background:var(--cream);
       line-height:1.5;
-    }
-
-    /* Header / Nav */
-    header.topnav {
+      }
+      /* Header / Nav */
+      header.topnav {
       position: fixed;
       top: 0; left: 0; right: 0;
       height: var(--nav-height);
@@ -37,24 +35,21 @@
       z-index: 9999; /* high so menu is above everything */
       background: linear-gradient(180deg, rgba(11,19,43,0.48), rgba(11,19,43,0.32));
       padding: 0 18px;
-    }
-
-    .nav-inner {
+      }
+      .nav-inner {
       max-width: var(--max-width);
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    /* Main links */
-    nav.navbar {
+      }
+      /* Main links */
+      nav.navbar {
       display: flex;
       gap: 28px;
       transition: all 0.3s ease;
-    }
-
-    nav.navbar a {
+      }
+      nav.navbar a {
       color: var(--cream);
       text-decoration: none;
       font-weight: 600;
@@ -63,49 +58,42 @@
       opacity: 0.95;
       padding: 10px 6px;
       transition: color 0.25s ease, transform 0.15s ease;
-    }
-
-    nav.navbar a:hover {
+      }
+      nav.navbar a:hover {
       color: var(--gold);
       transform: translateY(-2px);
-    }
-
-    nav.navbar a.home {
+      }
+      nav.navbar a.home {
       color: var(--gold);
       font-style: italic;
       font-weight: 700;
       letter-spacing: 1.6px;
       font-size: 15px;
-    }
-
-/* ===== Logo in Navbar (replacing Home text) ===== */
-.home-logo img {
-  height: 20px; /* adjust as needed */
-  width: auto;
-  display: block;
-  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
-}
-
-/* Hover effect – same as navbar links */
-.home-logo:hover img {
-  transform: translateY(-2px);
-  filter: brightness(1.2);
-  opacity: 0.9;
-}
-
-/* Keep alignment consistent */
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1100px;
-  width: 100%;
-  padding: 0 22px;
-}
-
-
-    /* ======= MOBILE STYLES ======= */
-    .menu-toggle {
+      }
+      /* ===== Logo in Navbar (replacing Home text) ===== */
+      .home-logo img {
+      height: 20px; /* adjust as needed */
+      width: auto;
+      display: block;
+      transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+      }
+      /* Hover effect – same as navbar links */
+      .home-logo:hover img {
+      transform: translateY(-2px);
+      filter: brightness(1.2);
+      opacity: 0.9;
+      }
+      /* Keep alignment consistent */
+      .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      width: 100%;
+      padding: 0 22px;
+      }
+      /* ======= MOBILE STYLES ======= */
+      .menu-toggle {
       display: none;
       background: transparent;
       border: none;
@@ -115,66 +103,59 @@
       padding: 8px;
       line-height: 0;
       -webkit-tap-highlight-color: transparent;
-    }
-    .menu-toggle:focus { outline: 2px solid rgba(198,166,100,0.25); border-radius:6px; }
-
-    /* inline svg icons inside button */
-    .menu-toggle svg { width: 26px; height: 26px; display:block; }
-    .menu-toggle .icon-x { display:none; }          /* hide X by default */
-    .menu-toggle.open .icon-bars { display:none; }   /* when open, hide bars */
-    .menu-toggle.open .icon-x { display:block; }     /* show X */
-
-    @media (max-width: 768px) {
+      }
+      .menu-toggle:focus { outline: 2px solid rgba(198,166,100,0.25); border-radius:6px; }
+      /* inline svg icons inside button */
+      .menu-toggle svg { width: 26px; height: 26px; display:block; }
+      .menu-toggle .icon-x { display:none; }          /* hide X by default */
+      .menu-toggle.open .icon-bars { display:none; }   /* when open, hide bars */
+      .menu-toggle.open .icon-x { display:block; }     /* show X */
+      @media (max-width: 768px) {
       .menu-toggle {
-        display: block;
+      display: block;
       }
-
       nav.navbar {
-        position: absolute;
-        top: var(--nav-height);
-        left: 0;
-        right: 0;
-        background: rgba(11,19,43,0.96);
-        flex-direction: column;
-        align-items: center;
-        gap: 22px;
-        padding: 24px 0;
-        display: none; /* hidden by default */
-        z-index: 9998; /* ensure menu appears above other content */
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: rgba(11,19,43,0.96);
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      padding: 24px 0;
+      display: none; /* hidden by default */
+      z-index: 9998; /* ensure menu appears above other content */
       }
-
       nav.navbar.active {
-        display: flex;
-        animation: slideDown 0.3s ease forwards;
+      display: flex;
+      animation: slideDown 0.3s ease forwards;
       }
-
       @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      from {
+      opacity: 0;
+      transform: translateY(-10px);
       }
-    }
-    section.fullscreen{
+      to {
+      opacity: 1;
+      transform: translateY(0);
+      }
+      }
+      }
+      section.fullscreen{
       min-height:100vh;display:flex;align-items:center;justify-content:center;
       padding:40px 18px;position:relative;
-    }
-    .navy-bg{background-color:var(--navy);color:var(--cream);}
-    .hero .names{font-size:48px;margin:6px 0 6px;}
-    .hero .sub{font-size:13px;letter-spacing:2px;margin-bottom:12px;}
-
-    #home {
+      }
+      .navy-bg{background-color:var(--navy);color:var(--cream);}
+      .hero .names{font-size:48px;margin:6px 0 6px;}
+      .hero .sub{font-size:13px;letter-spacing:2px;margin-bottom:12px;}
+      #home {
       position: relative;
       background: url('background1.png') no-repeat center center;
       background-size: cover;
       color: white;
-    }
-
-    #home::before {
+      }
+      #home::before {
       content: "";
       position: absolute;
       top: 0;
@@ -183,34 +164,31 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5); /* adjust 0.5 for darkness */
       z-index: 1;
-    }
-
-    #home .inner {
+      }
+      #home .inner {
       position: relative;
       z-index: 2; /* make sure content is above overlay */
-    }
-    #home .home-icon {
+      }
+      #home .home-icon {
       display: block;
       margin: 0 auto 20px;
       width: 100vw;
       max-width: 1000px;
       height: auto;
-    }
-    @media (min-width: 800px) {
-      #home .home-icon {
-        width: 50vw;
-        max-width: 1000px;
       }
-    }
-
-    #venue {
+      @media (min-width: 800px) {
+      #home .home-icon {
+      width: 50vw;
+      max-width: 1000px;
+      }
+      }
+      #venue {
       position: relative;
       background: url('background2.png') no-repeat center center;
       background-size: cover;
       color: white;
-    }
-
-    #venue::before {
+      }
+      #venue::before {
       content: "";
       position: absolute;
       top: 0;
@@ -219,58 +197,50 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 1;
-    }
-
-    #venue .inner {
+      }
+      #venue .inner {
       position: relative;
       z-index: 2;
-    }
-
-    /* Align ceremony & reception side by side */
-    #venue .venue-row {
+      }
+      /* Align ceremony & reception side by side */
+      #venue .venue-row {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 80px;
-    }
-
-    #venue .ceremony-icon,
-    #venue .reception-icon {
-      width: 100vw;
+      }
+      #venue .ceremony-icon,
+      #venue .reception-icon {
+      width: 80vw;
       max-width: 500px;
       height: auto;
-    }
-
-    @media (min-width: 768px) {
+      }
+      @media (min-width: 768px) {
       #venue .venue-row {
-        flex-direction: row;
-        gap: 40px;
+      flex-direction: row;
+      gap: 40px;
       }
-
       #venue .ceremony-icon,
       #venue .reception-icon {
-        width: 40%;
-        max-width: 500px;
+      width: 40%;
+      max-width: 500px;
       }
-    }
-
-    @media (max-width: 767px) {
+      }
+      @media (max-width: 767px) {
       #venue .ceremony-icon,
       #venue .reception-icon {
-        width: 60vw;
-        max-width: 1000px;
+      width: 60vw;
+      max-width: 1000px;
       }
-    }
-
-    #rsvp {
+      }
+      #rsvp {
       position: relative;
       background: url('background3.png') no-repeat center center;
       background-size: cover;
       color: white;
-    }
-
-    #rsvp::before {
+      }
+      #rsvp::before {
       content: "";
       position: absolute;
       top: 0;
@@ -279,46 +249,42 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 1;
-    }
-
-    #rsvp .inner {
+      }
+      #rsvp .inner {
       position: relative;
       z-index: 2;
-    }
-
-    #rsvp .envelope-icon {
+      }
+      #rsvp .envelope-icon {
       display: block;
       margin: 0 auto 80px;
       width: 100vw;
       max-width: 1000px;
       height: auto;
-    }
-    #rsvp .doily-icon {
+      }
+      #rsvp .doily-icon {
       display: block;
       margin: 0 auto 20px;
       width: 80vw;
       max-width: 1000px;
       height: auto;
-    }
-
-    @media (min-width: 800px) {
+      }
+      @media (min-width: 800px) {
       #rsvp .envelope-icon {
-        width: 60vw;
-        max-width: 1000px;
+      width: 60vw;
+      max-width: 1000px;
       }
       #rsvp .doily-icon {
-        width: 50vw;
-        max-width: 1000px;
+      width: 50vw;
+      max-width: 1000px;
       }
-    }
-
-    #details {
+      }
+      #details {
       position: relative;
       background: url('background4.png') no-repeat center center;
       background-size: cover;
       color: white;
-    }
-    #details::before {
+      }
+      #details::before {
       content: "";
       position: absolute;
       top: 0;
@@ -327,26 +293,26 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.0);
       z-index: 1;
-    }
-    #details .inner {
+      }
+      #details .inner {
       position: relative;
       z-index: 2;
-    }
-    #details .details-icon {
+      }
+      #details .details-icon {
       display: block;
       margin: 0 auto 20px;
       width: 100vw;
       max-width: 1000px;
       height: auto;
-    }
-    @media (min-width: 900px) {
-      #details .details-icon {
-        width: 50vw;
-        max-width: 1000px;
       }
-    }
-    /* Popup Overlay */
-    .popup {
+      @media (min-width: 900px) {
+      #details .details-icon {
+      width: 50vw;
+      max-width: 1000px;
+      }
+      }
+      /* Popup Overlay */
+      .popup {
       display: none;
       position: fixed;
       z-index: 2000;
@@ -354,10 +320,9 @@
       width: 100%; height: 100%;
       background-color: rgba(0,0,0,0.7);
       backdrop-filter: blur(4px);
-    }
-
-    /* Popup Box */
-    .popup-content {
+      }
+      /* Popup Box */
+      .popup-content {
       background: url('rsvp-popup.png') center/cover no-repeat;
       color: white;
       margin: 8% auto;
@@ -369,65 +334,68 @@
       position: relative;
       box-shadow: 0 5px 30px rgba(0,0,0,0.5);
       animation: fadeIn 0.3s ease;
-    }
-
-    /* Ceremony & Reception Popups use venue-popup.png */
-    #mapPopupCeremony .popup-content,
-    #mapPopupReception .popup-content {
+      }
+      /* Ceremony & Reception Popups use venue-popup.png */
+      #mapPopupCeremony .popup-content,
+      #mapPopupReception .popup-content {
       background: url('venue-popup.png') center/cover no-repeat;
       color: black;
-    }
-
-    /* Close Button */
-    .close {
+      }
+      /* Close Button */
+      .close {
       position: absolute;
       top: 10px; right: 15px;
       font-size: 28px;
       font-weight: bold;
       color: white;
       cursor: pointer;
-    }
-    #mapPopupCeremony .close,
-    #mapPopupReception .close {
+      }
+      #mapPopupCeremony .close,
+      #mapPopupReception .close {
       position: absolute;
       top: 10px; right: 15px;
       font-size: 28px;
       font-weight: bold;
       color: black;
       cursor: pointer;
-    }
-
-    /* Headings & Paragraphs */
-    .popup-content h2 {
+      }
+      /* Headings & Paragraphs */
+      .popup-content h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
       margin-bottom: 10px;
-    }
-
-    .popup-content p {
+      }
+      .popup-content p {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
       margin-bottom: 20px;
-    }
-
-    /* RSVP Form */
-    #rsvp-form {
+      }
+      /* Ensure popups always appear above the fixed header */
+      .popup {
+      z-index: 10000 !important;
+      }
+      /* Add margin on small screens so popup content doesn’t touch header */
+      @media (max-width: 768px) {
+      .popup-content {
+      margin-top: calc(var(--nav-height) + 20px);
+      }
+      }
+      /* RSVP Form */
+      #rsvp-form {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-top: 10px;
-    }
-
-    #rsvp-form label {
+      }
+      #rsvp-form label {
       font-weight: 600;
       text-align: left;
       font-size: 14px;
       color: white;
-    }
-
-    #rsvp-form input,
-    #rsvp-form select,
-    #rsvp-form textarea {
+      }
+      #rsvp-form input,
+      #rsvp-form select,
+      #rsvp-form textarea {
       padding: 10px 12px;
       font-family: 'Cormorant Garamond', serif;
       font-size: 15px;
@@ -436,27 +404,23 @@
       border: 1px solid rgba(255,255,255,0.4);
       border-radius: 6px;
       resize: none;
-    }
-
-    #rsvp-form input::placeholder,
-    #rsvp-form textarea::placeholder {
+      }
+      #rsvp-form input::placeholder,
+      #rsvp-form textarea::placeholder {
       color: rgba(255,255,255,0.7);
-    }
-
-    #rsvp-form select option {
+      }
+      #rsvp-form select option {
       color: black;
-    }
-
-    #rsvp-form input:focus,
-    #rsvp-form select:focus,
-    #rsvp-form textarea:focus {
+      }
+      #rsvp-form input:focus,
+      #rsvp-form select:focus,
+      #rsvp-form textarea:focus {
       outline: none;
       border-color: var(--gold);
       box-shadow: 0 0 6px rgba(198,166,100,0.6);
-    }
-
-    /* Submit Button */
-    .rsvp-btn {
+      }
+      /* Submit Button */
+      .rsvp-btn {
       display: inline-block;
       margin-top: 15px;
       padding: 10px 18px;
@@ -468,26 +432,23 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
-    }
-
-    .rsvp-btn:hover {
+      }
+      .rsvp-btn:hover {
       background: rgba(255, 255, 255, 0.85);
       transform: scale(1.03);
-    }
-
-    /* Fade Animation */
-    @keyframes fadeIn {
+      }
+      /* Fade Animation */
+      @keyframes fadeIn {
       from {opacity: 0; transform: scale(0.9);}
       to {opacity: 1; transform: scale(1);}
-    }
-    #entourage {
+      }
+      #entourage {
       position: relative;
       background: url('rsvp-popup.png') no-repeat center center;
       background-size: cover;
       color: white;
-    }
-
-    #entourage::before {
+      }
+      #entourage::before {
       content: "";
       position: absolute;
       top: 0;
@@ -496,33 +457,31 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5); /* adjust 0.5 for darkness */
       z-index: 1;
-    }
-
-    #entourage .inner {
+      }
+      #entourage .inner {
       position: relative;
       z-index: 2; /* make sure content is above overlay */
-    }
-    #entourage .entourage-icon {
+      }
+      #entourage .entourage-icon {
       display: block;
       margin: 0 auto 20px;
       width: 100vw;
       max-width: 1000px;
       height: auto;
-    }
-    @media (min-width: 900px) {
-      #entourage .entourage-icon {
-        width: 50vw;
-        max-width: 1000px;
       }
-    }
-
-    #story {
+      @media (min-width: 900px) {
+      #entourage .entourage-icon {
+      width: 50vw;
+      max-width: 1000px;
+      }
+      }
+      #story {
       position: relative;
       background: url('background4.png') no-repeat center center;
       background-size: cover;
       color: white;
-    }
-    #story::before {
+      }
+      #story::before {
       content: "";
       position: absolute;
       top: 0;
@@ -531,419 +490,343 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.0);
       z-index: 1;
-    }
-    #story .inner {
+      }
+      #story .inner {
       position: relative;
       z-index: 2;
-    }
-    #story .story-icon {
+      }
+      #story .story-icon {
       display: block;
       margin: 0 auto 20px;
       width: 100vw;
       max-width: 1000px;
       height: auto;
-    }
-    @media (min-width: 900px) {
-      #story .story-icon {
-        width: 50vw;
-        max-width: 1000px;
       }
-    }
-    footer a:hover {
+      @media (min-width: 900px) {
+      #story .story-icon {
+      width: 50vw;
+      max-width: 1000px;
+      }
+      }
+      footer a:hover {
       color: #d8b97d !important;
       text-shadow: 0 0 6px rgba(198,166,100,0.5);
       transform: translateY(-1px);
-    }
-  </style>
-</head>
-<body>
-
-<header class="topnav">
-  <div class="nav-inner">
-    <a href="#home" class="home-logo">
-      <img src="cv-logo.png" alt="Caesar & Vera Logo">
-    </a>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="navbar" aria-expanded="false">
-      <svg class="icon-bars" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
-      </svg>
-      <svg class="icon-x" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M18.3 5.71L12 12.01 5.71 5.71 4.29 7.12 10.59 13.41 4.29 19.71 5.71 21.12 12 14.83 18.29 21.12 19.71 19.71 13.41 13.41 19.71 7.12z"/>
-      </svg>
-    </button>
-
-    <nav class="navbar" id="navbar">
-      <a href="#venue">VENUE</a>
-      <a href="#rsvp">RSVP</a>
-      <a href="#details">DETAILS</a>
-      <a href="#entourage">ENTOURAGE</a>
-      <a href="#story">OUR STORY</a>
-    </nav>
-  </div>
-</header>
-
-  <section id="home" class="fullscreen hero">
-    <div class="inner">
-      <img src="home.png" alt="Home" class="home-icon">
-      <img src="home1.gif" alt="Home" class="home-icon">
-    </div>
-  </section>
-
-  <section id="venue" class="fullscreen">
-    <div class="inner">
-      <div class="venue-row">
-        <!-- Ceremony Image -->
-        <img src="ceremony.png" 
-             alt="Ceremony" 
-             class="ceremony-icon"
-             style="cursor:pointer; transition:transform 0.3s ease;"
-             onclick="openPopup('mapPopupCeremony', this)" />
-
-        <!-- Reception Image -->
-        <img src="reception.png" 
-             alt="Reception" 
-             class="reception-icon"
-             style="cursor:pointer; transition:transform 0.3s ease;"
-             onclick="openPopup('mapPopupReception', this)" />
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topnav">
+      <div class="nav-inner">
+        <a href="#home" class="home-logo">
+        <img src="cv-logo.png" alt="Caesar & Vera Logo">
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-controls="navbar" aria-expanded="false">
+          <svg class="icon-bars" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/>
+          </svg>
+          <svg class="icon-x" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M18.3 5.71L12 12.01 5.71 5.71 4.29 7.12 10.59 13.41 4.29 19.71 5.71 21.12 12 14.83 18.29 21.12 19.71 19.71 13.41 13.41 19.71 7.12z"/>
+          </svg>
+        </button>
+        <nav class="navbar" id="navbar">
+          <a href="#story">OUR STORY</a>
+          <a href="#entourage">ENTOURAGE</a>
+          <a href="#details">DETAILS</a>
+          <a href="#rsvp">RSVP</a>
+          <a href="#venue">VENUE</a>
+        </nav>
+      </div>
+    </header>
+    <section id="home" class="fullscreen hero">
+      <div class="inner">
+        <img src="home.png" alt="Home" class="home-icon">
+        <img src="home1.gif" alt="Home" class="home-icon">
+      </div>
+    </section>
+    <section id="story" class="fullscreen">
+      <div class="inner">
+        <img src="story.png" alt="Details" class="story-icon">
+      </div>
+    </section>
+    <section id="entourage" class="fullscreen">
+      <div class="inner">
+        <img src="entourage.png" alt="Entourage" class="entourage-icon">
+      </div>
+    </section>
+    <section id="details" class="fullscreen">
+      <div class="inner">
+        <img src="details.png" alt="Details" class="details-icon">
+      </div>
+    </section>
+    <section id="rsvp" class="fullscreen">
+      <div class="inner">
+        <img src="envelope.png" alt="Envelope" class="envelope-icon" style="cursor:pointer;">
+        <img src="doily.png" alt="Doily" class="doily-icon">
+      </div>
+    </section>
+    <!-- RSVP Popup -->
+    <div id="rsvpPopup" class="popup" aria-hidden="true">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <h2>RSVP</h2>
+        <p id="rsvp-intro">We’d love to know if you can celebrate with us!</p>
+        <form id="rsvp-form">
+          <label for="full-name">Name</label>
+          <input type="text" id="full-name" required>
+          <label for="attending">Will you attend?</label>
+          <select id="attending" required>
+            <option value="">Select an option</option>
+            <option value="Yes">Yes, I’ll be there</option>
+            <option value="No">Sorry, I can’t attend</option>
+          </select>
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Your note (optional)"></textarea>
+          <button type="submit" class="rsvp-btn">Submit RSVP</button>
+        </form>
+        <!-- Add confirmation message -->
+        <div id="rsvp-confirmation" style="display:none; margin-top:15px;">
+          <p id="confirmation-message"><br>We can’t wait to celebrate with you!<br><br>Thank you for your RSVP!</p>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- CEREMONY POPUP -->
-  <div id="mapPopupCeremony" class="popup" aria-hidden="true">
-    <div class="popup-content" style="max-width:500px;">
-      <span class="close" onclick="document.getElementById('mapPopupCeremony').style.display='none'">&times;</span>
-      <h2>Ceremony Location</h2>
-      <p style="font-size:15px; margin-bottom:15px; opacity:0.9;">
-        Saints Peter &amp; Paul Parish Church
-      </p>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.7902263296235!2d120.354258!3d16.0100093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339142c5059628d7%3A0x28fd05e4a852369a!2sSaints%20Peter%20%26%20Paul%20Parish%20Church%20-%20Calasiao%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1729234567890!5m2!1sen!2sph"
-        width="100%"
-        height="300"
-        style="border:0; border-radius:10px;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
-    </div>
-  </div>
-
-  <!-- RECEPTION POPUP -->
-  <div id="mapPopupReception" class="popup" aria-hidden="true">
-    <div class="popup-content" style="max-width:500px;">
-      <span class="close" onclick="document.getElementById('mapPopupReception').style.display='none'">&times;</span>
-      <h2>Reception Location</h2>
-      <p style="font-size:15px; margin-bottom:15px; opacity:0.9;">
-        Village Royale
-      </p>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.12345!2d120.3715103!3d16.0185168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33914316b3c24c2b%3A0xcaff2f4cf9c5fce9!2sThe%20Village%20Royale!5e0!3m2!1sen!2sph!4v1729201234567!5m2!1sen!2sph"
-        width="100%"
-        height="300"
-        style="border:0; border-radius:10px;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
-    </div>
-  </div>
-
-  <section id="rsvp" class="fullscreen">
-    <div class="inner">
-      <img src="envelope.png" alt="Envelope" class="envelope-icon" style="cursor:pointer;">
-      <img src="doily.png" alt="Doily" class="doily-icon">
-    </div>
-  </section>
-
-  <!-- RSVP Popup -->
-  <div id="rsvpPopup" class="popup" aria-hidden="true">
-    <div class="popup-content">
-      <span class="close">&times;</span>
-      <h2>RSVP</h2>
-      <p id="rsvp-intro">We’d love to know if you can celebrate with us!</p>
-      <form id="rsvp-form">
-        <label for="full-name">Name</label>
-        <input type="text" id="full-name" required>
-
-        <label for="attending">Will you attend?</label>
-        <select id="attending" required>
-          <option value="">Select an option</option>
-          <option value="Yes">Yes, I’ll be there</option>
-          <option value="No">Sorry, I can’t attend</option>
-        </select>
-
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Your note (optional)"></textarea>
-
-        <button type="submit" class="rsvp-btn">Submit RSVP</button>
-      </form>
-
-      <!-- Add confirmation message -->
-      <div id="rsvp-confirmation" style="display:none; margin-top:15px;">
-        <p id="confirmation-message"><br>We can’t wait to celebrate with you!<br><br>Thank you for your RSVP!</p>
+    <section id="venue" class="fullscreen">
+      <div class="inner">
+        <div class="venue-row">
+          <!-- Ceremony Image -->
+          <img src="ceremony.png" 
+            alt="Ceremony" 
+            class="ceremony-icon"
+            style="cursor:pointer; transition:transform 0.3s ease;"
+            onclick="openPopup('mapPopupCeremony', this)" />
+          <!-- Reception Image -->
+          <img src="reception.png" 
+            alt="Reception" 
+            class="reception-icon"
+            style="cursor:pointer; transition:transform 0.3s ease;"
+            onclick="openPopup('mapPopupReception', this)" />
+        </div>
+      </div>
+    </section>
+    <!-- CEREMONY POPUP -->
+    <div id="mapPopupCeremony" class="popup" aria-hidden="true">
+      <div class="popup-content" style="max-width:500px;">
+        <span class="close" onclick="document.getElementById('mapPopupCeremony').style.display='none'">&times;</span>
+        <h2>Ceremony Location</h2>
+        <p style="font-size:15px; margin-bottom:15px; opacity:0.9;">
+          Saints Peter &amp; Paul Parish Church
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.7902263296235!2d120.354258!3d16.0100093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339142c5059628d7%3A0x28fd05e4a852369a!2sSaints%20Peter%20%26%20Paul%20Parish%20Church%20-%20Calasiao%2C%20Pangasinan!5e0!3m2!1sen!2sph!4v1729234567890!5m2!1sen!2sph"
+          width="100%"
+          height="300"
+          style="border:0; border-radius:10px;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
       </div>
     </div>
-  </div>
-
-  <section id="details" class="fullscreen">
-    <div class="inner">
-      <img src="details.png" alt="Details" class="details-icon">
+    <!-- RECEPTION POPUP -->
+    <div id="mapPopupReception" class="popup" aria-hidden="true">
+      <div class="popup-content" style="max-width:500px;">
+        <span class="close" onclick="document.getElementById('mapPopupReception').style.display='none'">&times;</span>
+        <h2>Reception Location</h2>
+        <p style="font-size:15px; margin-bottom:15px; opacity:0.9;">
+          Village Royale
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.12345!2d120.3715103!3d16.0185168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33914316b3c24c2b%3A0xcaff2f4cf9c5fce9!2sThe%20Village%20Royale!5e0!3m2!1sen!2sph!4v1729201234567!5m2!1sen!2sph"
+          width="100%"
+          height="300"
+          style="border:0; border-radius:10px;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
     </div>
-  </section>
-
-  <section id="entourage" class="fullscreen">
-    <div class="inner">
-      <img src="entourage.png" alt="Entourage" class="entourage-icon">
-    </div>
-  </section>
-
-  <section id="story" class="fullscreen">
-    <div class="inner">
-      <img src="story.png" alt="Details" class="story-icon">
-    </div>
-  </section>
-
-<footer style="
-  padding: 20px 5px;
-  background-color: #0b132b;
-  color: #faf3e0;
-  text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-  border-top: 1px solid rgba(198,166,100,0.25);
-">
-  <img src="cv-logo.png" alt="CV Atelier Logo" style="height:20px; margin:4px 0 8px;">
-  <p style="margin: 6px 0 12px; font-weight:400; opacity:0.9;">
-    Designed by CV Atelier
-  </p>
-
-  <p style="margin: 0; font-size: 13px; font-style: italic; color: rgba(250,243,224,0.8);">
-     For inquiries, check our social media accounts and message us.
-  </p>
-
-  <!-- Social Icons -->
-  <div style="margin-top: 18px;">
-    <a href="https://www.tiktok.com/@cvatelierofficial" target="_blank" title="Instagram"
-       style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
-      <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://www.instagram.com/cvatelierofficial" target="_blank" title="Instagram"
-       style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/cvatelierofficial" target="_blank" title="Facebook"
-       style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://x.com/cvatelier" target="_blank" title="X (Twitter)"
-       style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
-      <i class="fab fa-x-twitter"></i>
-    </a>
-    <a href="mailto:cvatelierofficial@gmail.com" title="Email"
-       style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
-      <i class="fas fa-envelope"></i>
-    </a>
-  </div>
-
-  <audio id="bgAudio" src="music.mp3" preload="auto" loop></audio>
-</footer>
-
-<script>
-  // Robust nav/menu + popups + audio + RSVP form
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menuToggle");
-    const navbar = document.getElementById("navbar");
-    const icon = menuToggle; // button DOM
-    const links = document.querySelectorAll(".navbar a");
-
-    function openMenu() {
-      navbar.classList.add("active");
-      icon.classList.add("open");
-      icon.setAttribute("aria-expanded", "true");
-      // prevent body scroll on mobile when menu open
-      document.body.style.overflow = "hidden";
-    }
-    function closeMenu() {
-      navbar.classList.remove("active");
-      icon.classList.remove("open");
-      icon.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    }
-
-    // Toggle menu
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (navbar.classList.contains("active")) closeMenu();
-      else openMenu();
-    });
-
-    // Close on nav link click
-    links.forEach(link => {
-      link.addEventListener("click", () => {
-        closeMenu();
-      });
-    });
-
-    // Close when clicking outside
-    window.addEventListener("click", (e) => {
-      if (!navbar.contains(e.target) && !menuToggle.contains(e.target) && navbar.classList.contains("active")) {
-        closeMenu();
-      }
-    });
-
-    // Close on Escape key
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && navbar.classList.contains("active")) {
-        closeMenu();
-      }
-    });
-
-    // Ensure closed when resizing to desktop
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        closeMenu();
-      }
-    });
-
-    // Popup open helper (for venue)
-    window.openPopup = function(id, el) {
-      if (el) {
-        el.style.transform = 'scale(1.03)';
-        setTimeout(() => el.style.transform = 'scale(1)', 200);
-      }
-      const popup = document.getElementById(id);
-      if (popup) {
-        popup.style.display = 'block';
-        popup.style.opacity = 0;
-        setTimeout(() => (popup.style.opacity = 1), 10);
-      }
-    };
-
-    // CEREMONY & RECEPTION popups close logic
-    const popups = document.querySelectorAll('.popup');
-    popups.forEach(p => {
-      // close button inside popup
-      const closeBtn = p.querySelector('.close');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-          p.style.opacity = 0;
-          setTimeout(() => (p.style.display = 'none'), 200);
-        });
-      }
-      // click outside to close
-      window.addEventListener('click', (event) => {
-        if (event.target === p) {
-          p.style.opacity = 0;
-          setTimeout(() => (p.style.display = 'none'), 200);
+    <footer style="
+      padding: 20px 5px;
+      background-color: #0b132b;
+      color: #faf3e0;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      border-top: 1px solid rgba(198,166,100,0.25);
+      ">
+      <img src="cv-logo.png" alt="CV Atelier Logo" style="height:20px; margin:4px 0 8px;">
+      <p style="margin: 6px 0 12px; font-weight:400; opacity:0.9;">
+        Designed by CV Atelier
+      </p>
+      <p style="margin: 0; font-size: 13px; font-style: italic; color: rgba(250,243,224,0.8);">
+        For inquiries, check our social media accounts and message us.
+      </p>
+      <!-- Social Icons -->
+      <div style="margin-top: 18px;">
+        <a href="https://www.tiktok.com/@cvatelierofficial" target="_blank" title="Instagram"
+          style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
+        <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.instagram.com/cvatelierofficial" target="_blank" title="Instagram"
+          style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
+        <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/cvatelierofficial" target="_blank" title="Facebook"
+          style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/cvatelier" target="_blank" title="X (Twitter)"
+          style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
+        <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="mailto:cvatelierofficial@gmail.com" title="Email"
+          style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
+        <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+      <audio id="bgAudio" src="music.mp3" preload="auto" loop></audio>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const menuToggle = document.getElementById("menuToggle");
+        const navbar = document.getElementById("navbar");
+        const links = document.querySelectorAll(".navbar a");
+      
+        // ===== NAV MENU =====
+        function openMenu() {
+          navbar.classList.add("active");
+          menuToggle.classList.add("open");
+          menuToggle.setAttribute("aria-expanded", "true");
+          document.body.style.overflow = "hidden";
         }
-      });
-    });
-
-    // RSVP Popup + Submit Logic
-    (function setupRSVP() {
-      const envelope = document.querySelector('#rsvp .envelope-icon');
-      const popup = document.getElementById('rsvpPopup');
-      const closeBtn = popup ? popup.querySelector('.close') : null;
-      const form = document.getElementById('rsvp-form');
-      const confirmation = document.getElementById('rsvp-confirmation');
-
-      if (envelope && popup) {
-        envelope.addEventListener('click', () => {
-          popup.style.display = 'block';
-          popup.style.opacity = 0;
-          setTimeout(() => (popup.style.opacity = 1), 10);
-        });
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-          popup.style.opacity = 0;
-          setTimeout(() => (popup.style.display = 'none'), 200);
-        });
-      }
-
-      window.addEventListener('click', (event) => {
-        if (event.target === popup) {
-          popup.style.opacity = 0;
-          setTimeout(() => (popup.style.display = 'none'), 200);
+      
+        function closeMenu() {
+          navbar.classList.remove("active");
+          menuToggle.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
         }
-      });
-
-      if (form) {
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
-
-          const formData = new FormData();
-          formData.append("name", document.getElementById("full-name").value);
-          formData.append("attending", document.getElementById("attending").value);
-          formData.append("message", document.getElementById("message").value);
-
-          try {
-            const response = await fetch("https://script.google.com/macros/s/AKfycbzp-mY7ytVfrc86c6vzsTcaOqwAdwHXHZ_n7tzpM6lGE4jSVKdiGJ8khngsuhtOk-c0Jw/exec", {
-              method: "POST",
-              body: formData
+      
+        menuToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (navbar.classList.contains("active")) closeMenu();
+          else openMenu();
+        });
+      
+        links.forEach(link => {
+          link.addEventListener("click", () => closeMenu());
+        });
+      
+        window.addEventListener("click", (e) => {
+          if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) closeMenu();
+        });
+      
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeMenu();
+        });
+      
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) closeMenu();
+        });
+      
+        // ===== POPUPS =====
+        window.openPopup = function(id, el) {
+          if (el) {
+            el.style.transform = 'scale(1.03)';
+            setTimeout(() => el.style.transform = 'scale(1)', 200);
+          }
+          const popup = document.getElementById(id);
+          if (popup) {
+            popup.style.display = 'block';
+            popup.style.opacity = 0;
+            setTimeout(() => (popup.style.opacity = 1), 10);
+          }
+        };
+      
+        document.querySelectorAll('.popup').forEach(popup => {
+          const closeBtn = popup.querySelector('.close');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+              popup.style.opacity = 0;
+              setTimeout(() => (popup.style.display = 'none'), 200);
             });
-
-            console.log(await response.text()); // Debugging line
-            form.reset();
-            form.style.display = "none";
-            document.getElementById("rsvp-intro").style.display = "none";
-            if (confirmation) confirmation.style.display = "block";
-          } catch (err) {
-            alert("Submission failed: " + err.message);
+          }
+      
+          window.addEventListener('click', (event) => {
+            if (event.target === popup) {
+              popup.style.opacity = 0;
+              setTimeout(() => (popup.style.display = 'none'), 200);
+            }
+          });
+        });
+      
+        // ===== RSVP POPUP & FORM =====
+        const envelope = document.querySelector('#rsvp .envelope-icon');
+        const popup = document.getElementById('rsvpPopup');
+        const closeBtn = popup?.querySelector('.close');
+        const form = document.getElementById('rsvp-form');
+        const confirmation = document.getElementById('rsvp-confirmation');
+      
+        if (envelope && popup) {
+          envelope.addEventListener('click', () => {
+            popup.style.display = 'block';
+            popup.style.opacity = 0;
+            setTimeout(() => (popup.style.opacity = 1), 10);
+          });
+        }
+      
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => {
+            popup.style.opacity = 0;
+            setTimeout(() => (popup.style.display = 'none'), 200);
+          });
+        }
+      
+        window.addEventListener('click', (event) => {
+          if (event.target === popup) {
+            popup.style.opacity = 0;
+            setTimeout(() => (popup.style.display = 'none'), 200);
           }
         });
-      }
-    })();
-
-(function setupAudio() {
-  const audioEl = document.getElementById("bgAudio");
-  if (!audioEl) return;
-
-  let audioStarted = false;
-
-  // Preload silently
-  audioEl.volume = 0;
-  audioEl.muted = true;
-  audioEl.load();
-
-  function startAudio() {
-    if (audioStarted) return;
-    audioStarted = true;
-
-    audioEl.muted = false;
-    audioEl.play().then(() => {
-      // Smooth fade-in
-      let vol = 0;
-      const fade = setInterval(() => {
-        vol += 0.02;
-        if (vol >= 0.8) {
-          vol = 0.8;
-          clearInterval(fade);
+      
+        if (form) {
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+      
+            const formData = new FormData();
+            formData.append("name", document.getElementById("full-name").value);
+            formData.append("attending", document.getElementById("attending").value);
+            formData.append("message", document.getElementById("message").value);
+      
+            try {
+              // Dummy delay to simulate successful submission
+              await new Promise(res => setTimeout(res, 600));
+      
+              // Hide form and show confirmation message
+              form.style.display = "none";
+              confirmation.style.display = "block";
+            } catch (error) {
+              alert("Something went wrong. Please try again.");
+              console.error(error);
+            }
+          });
         }
-        audioEl.volume = vol;
-      }, 120);
-    }).catch(err => {
-      console.log("Audio blocked:", err);
-    });
-
-    // Clean up listeners once started
-    window.removeEventListener("scroll", startAudio);
-    window.removeEventListener("click", startAudio);
-    window.removeEventListener("touchstart", startAudio);
-  }
-
-  // Any user gesture (scroll/tap/click) will start it
-  window.addEventListener("scroll", startAudio, { once: true });
-  window.addEventListener("click", startAudio, { once: true });
-  window.addEventListener("touchstart", startAudio, { once: true });
-})();
-    })();
-</script>
-
-<!-- Font Awesome kit if needed for other icons -->
-<script src="https://kit.fontawesome.com/4a4f96d234.js" crossorigin="anonymous"></script>
-</body>
+      
+        // ===== BACKGROUND AUDIO =====
+        const bgAudio = document.getElementById("bgAudio");
+        if (bgAudio) {
+          let audioStarted = false;
+          const startAudio = () => {
+            if (!audioStarted) {
+              bgAudio.play().catch(() => {});
+              audioStarted = true;
+            }
+          };
+          document.body.addEventListener("scroll", startAudio, { once: true, passive: true });
+          document.body.addEventListener("click", startAudio, { once: true });
+          document.body.addEventListener("touchstart", startAudio, { once: true });
+        }
+      });
+    </script>
+  </body>
 </html>
-

@@ -405,6 +405,44 @@
     font-size: 11px;
   }
 }
+/* 📱 Extra small screens (phones under 400px wide) */
+@media (max-width: 400px) {
+  .calendar-box {
+    max-width: 220px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .calendar-month {
+    font-size: 15px;
+  }
+
+  .calendar-days {
+    gap: 2px;
+    font-size: 10px;
+  }
+
+  .calendar-days div {
+    padding: 4px 0;
+  }
+}
+
+/* 💻 Small tablets (under 600px wide) */
+@media (max-width: 600px) and (min-width: 401px) {
+  .calendar-box {
+    max-width: 280px;
+    padding: 16px;
+  }
+
+  .calendar-month {
+    font-size: 17px;
+  }
+
+  .calendar-days {
+    gap: 4px;
+    font-size: 11.5px;
+  }
+}
 
 
 			#venue {

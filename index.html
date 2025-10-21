@@ -257,22 +257,28 @@
 #wedding-calendar {
     margin-bottom: 20px; /* Adjust value as needed */
 }
-/* Countdown – Fixed Positioning but Responsive */
-#countdown {
-  display: flex;
-  justify-content: center; /* keeps center alignment */
-  align-items: center;
-  gap: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 25px 40px;
-  width: 100%;
-  max-width: 500px; /* ✅ matches calendar width */
-  margin: 0 auto; /* keeps centered horizontally */
+/* Countdown & Calendar Unified Sizing */
+#countdown, 
+#wedding-calendar {
+  width: 80vw;                /* same width scaling as GIF */
+  max-width: 1000px;          /* same max width as home1.gif */
+  margin: 0 auto;             /* center horizontally */
   box-sizing: border-box;
 }
 
-/* Countdown boxes */
+/* Countdown styling */
+#countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px;
+  border-radius: 20px;
+  padding: 25px 40px;
+  flex-wrap: wrap;
+}
+
 .countdown-box {
   flex: 1;
   min-width: 80px;
@@ -292,55 +298,58 @@
   letter-spacing: 1px;
 }
 
-/* ✅ Responsive Adjustments (maintains position) */
-@media (max-width: 1024px) {
-  #countdown {
-    max-width: 90%;
-    gap: 18px;
-    padding: 20px 30px;
-  }
-
-  .count-number {
-    font-size: 36px;
-  }
+/* Calendar styling */
+#wedding-calendar {
+  text-align: center;
+  margin-top: 40px;
 }
 
+.calendar-box {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 25px;
+  color: white;
+  width: 100%;                /* fill same width as countdown */
+  box-sizing: border-box;
+}
+
+.calendar-month {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  font-size: 14px;
+}
+
+.calendar-days div {
+  padding: 6px 0;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.calendar-days div.today {
+  background: white;
+  color: #0b132b;
+  font-weight: 700;
+}
+
+.calendar-days div:hover {
+  transform: scale(1.1);
+  cursor: default;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  #countdown {
-    max-width: 95%;
-    gap: 15px;
-    padding: 18px 25px;
-  }
-
-  .count-number {
-    font-size: 30px;
-  }
-
-  .count-label {
-    font-size: 11px;
+  #countdown, #wedding-calendar {
+    width: 90vw;
   }
 }
-
-@media (max-width: 480px) {
-  #countdown {
-    max-width: 100%;
-    gap: 10px;
-    padding: 15px 20px;
-  }
-
-  .countdown-box {
-    min-width: 60px;
-  }
-
-  .count-number {
-    font-size: 26px;
-  }
-
-  .count-label {
-    font-size: 10px;
-  }
-}
-
 			#venue {
 			position: relative;
 			background: url('background2.png') no-repeat center center;

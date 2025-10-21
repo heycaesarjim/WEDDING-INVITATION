@@ -319,45 +319,43 @@
   }
 }
 
-/* ✅ Wedding Calendar */
+/* ✅ Wedding Calendar — adjusted to match countdown size */
 #wedding-calendar {
-  width: 100%;
   display: flex;
   justify-content: center;
   margin: 0 auto 40px;
-  box-sizing: border-box;
+  width: 100%;
 }
 
 .calendar-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid white;
-  border-radius: 20px;
-  padding: 25px;
-  color: white;
   width: 100%;
-  max-width: 400px; /* same width as countdown */
+  max-width: 400px; /* ✅ same width as countdown */
+  background: rgba(255,255,255,0.1);
+  border: 1px solid white;
+  border-radius: 12px; /* ✅ same curve as countdown */
+  padding: 12px 18px; /* ✅ same padding as countdown */
   box-sizing: border-box;
+  color: white;
   text-align: center;
 }
 
-/* Month Title */
 .calendar-month {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-/* Calendar grid */
 .calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  font-size: 14px;
+  gap: 6px;
+  font-size: 11px;
+  justify-content: center;
 }
 
 .calendar-days div {
-  padding: 6px 0;
-  border-radius: 6px;
+  padding: 5px 0;
+  border-radius: 5px;
   transition: transform 0.2s ease;
 }
 
@@ -368,45 +366,24 @@
 }
 
 .calendar-days div:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   cursor: default;
 }
 
 /* ✅ Responsive Fixes */
 @media (max-width: 768px) {
   .calendar-box {
-    padding: 18px;
-    max-width: 300px; /* shrink proportionally */
-  }
-
-  .calendar-month {
-    font-size: 18px;
-  }
-
-  .calendar-days {
-    gap: 5px;
-    font-size: 12px;
+    max-width: 300px;
+    padding: 10px 14px;
   }
 }
 
 @media (max-width: 480px) {
   .calendar-box {
-    padding: 14px;
     max-width: 260px;
-    border-radius: 14px;
-  }
-
-  .calendar-month {
-    font-size: 16px;
-  }
-
-  .calendar-days {
-    gap: 3px;
-    font-size: 11px;
+    padding: 8px 10px;
   }
 }
-
-
 			#venue {
 			position: relative;
 			background: url('background2.png') no-repeat center center;

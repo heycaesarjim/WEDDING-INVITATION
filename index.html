@@ -257,40 +257,57 @@
 
 /* Smaller Countdown Styling */
 #countdown {
-  width: 55vw;                /* slightly narrower */
-  max-width: 420px;
+  width: 55vw;
+  max-width: 400px;
   margin: 0 auto 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  border-radius: 15px;
-  padding: 15px 20px;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 12px 18px;
   flex-wrap: wrap;
   box-sizing: border-box;
 }
 
 .countdown-box {
   flex: 1;
-  min-width: 60px;
-  padding: 10px 12px;
+  min-width: 55px;
+  padding: 8px 10px;
   background: rgba(255,255,255,0.1);
-  border: 1.5px solid white;
-  border-radius: 10px;
+  border: 1px solid white;
+  border-radius: 8px;
   text-align: center;
 }
 
 .count-number {
-  font-size: 26px;   /* smaller numbers */
-  font-weight: 600;
+  font-size: 18px;   /* smaller main number */
+  font-weight: 500;
   color: #fff;
 }
 
 .count-label {
-  font-size: 10px;
+  font-size: 8px;    /* smaller label text */
   color: #ccc;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #countdown {
+    width: 85vw;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .count-number {
+    font-size: 16px;
+  }
+
+  .count-label {
+    font-size: 7px;
+  }
 }
 
 /* Responsive */
@@ -302,31 +319,35 @@
   }
 }
 
-/* Calendar Styling */
+/* ✅ Wedding Calendar */
 #wedding-calendar {
-  width: 65vw;                /* same as countdown */
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 40px;
   box-sizing: border-box;
 }
 
 .calendar-box {
-  background: rgba(255,255,255,0.05);
-  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid white;
   border-radius: 20px;
   padding: 25px;
   color: white;
   width: 100%;
+  max-width: 400px; /* same width as countdown */
+  box-sizing: border-box;
+  text-align: center;
 }
 
+/* Month Title */
 .calendar-month {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
+/* Calendar grid */
 .calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -351,34 +372,15 @@
   cursor: default;
 }
 
-/* ✅ Responsive — Countdown only */
+/* ✅ Responsive Fixes */
 @media (max-width: 768px) {
-  #countdown {
-    width: 90vw;
-    max-width: 100%;
-    padding: 15px 10px;
-    gap: 15px;
-  }
-
-  .count-number {
-    font-size: 32px;
-  }
-
-  .count-label {
-    font-size: 10px;
-  }
-}
-
-/* ✅ Responsive — Calendar only */
-@media (max-width: 768px) {
-  #wedding-calendar {
-    width: 90vw;
-    max-width: 100%;
-    padding: 0 10px;
-  }
-
   .calendar-box {
-    padding: 15px;
+    padding: 18px;
+    max-width: 300px; /* shrink proportionally */
+  }
+
+  .calendar-month {
+    font-size: 18px;
   }
 
   .calendar-days {
@@ -386,6 +388,24 @@
     font-size: 12px;
   }
 }
+
+@media (max-width: 480px) {
+  .calendar-box {
+    padding: 14px;
+    max-width: 260px;
+    border-radius: 14px;
+  }
+
+  .calendar-month {
+    font-size: 16px;
+  }
+
+  .calendar-days {
+    gap: 3px;
+    font-size: 11px;
+  }
+}
+
 
 			#venue {
 			position: relative;

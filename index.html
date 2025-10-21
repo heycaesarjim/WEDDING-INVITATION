@@ -255,26 +255,20 @@
     cursor: default;
 }
 
-/* Countdown & Calendar Unified Sizing */
-#countdown, 
-#wedding-calendar {
-  width: 65vw;                /* same width scaling as GIF */
-  max-width: 500px;          /* same max width as home1.gif */
-  margin: 0 auto;             /* center horizontally */
-  margin-bottom: 30px; /* Adjust value as needed */
-  box-sizing: border-box;
-}
-
-/* Countdown styling */
+/* Countdown Styling */
 #countdown {
+  width: 65vw;                /* same width as gif */
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  border: 2px;
   border-radius: 20px;
   padding: 25px 40px;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .countdown-box {
@@ -296,10 +290,14 @@
   letter-spacing: 1px;
 }
 
-/* Calendar styling */
+/* Calendar Styling */
 #wedding-calendar {
+  width: 65vw;                /* same as countdown */
+  max-width: 500px;
+  margin: 0 auto;
   text-align: center;
   margin-top: 40px;
+  box-sizing: border-box;
 }
 
 .calendar-box {
@@ -308,8 +306,7 @@
   border-radius: 20px;
   padding: 25px;
   color: white;
-  width: 100%;                /* fill same width as countdown */
-  box-sizing: border-box;
+  width: 100%;
 }
 
 .calendar-month {
@@ -342,17 +339,42 @@
   cursor: default;
 }
 
-/* Responsive */
+/* ✅ Responsive — Countdown only */
 @media (max-width: 768px) {
-  #countdown, #wedding-calendar {
-    width: 100vw;
+  #countdown {
+    width: 90vw;
+    max-width: 100%;
+    padding: 15px 10px;
+    gap: 15px;
+  }
+
+  .count-number {
+    font-size: 32px;
+  }
+
+  .count-label {
+    font-size: 10px;
   }
 }
+
+/* ✅ Responsive — Calendar only */
 @media (max-width: 768px) {
   #wedding-calendar {
     width: 90vw;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .calendar-box {
+    padding: 15px;
+  }
+
+  .calendar-days {
+    gap: 5px;
+    font-size: 12px;
   }
 }
+
 			#venue {
 			position: relative;
 			background: url('background2.png') no-repeat center center;

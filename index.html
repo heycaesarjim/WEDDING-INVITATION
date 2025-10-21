@@ -182,269 +182,232 @@
 			max-width: 1000px;
 			}
 			}
-.countdown-box {
-    background: rgba(255,255,255,0.1); /* subtle white overlay */
-    border: 2px solid white;
-    border-radius: 12px;
-    padding: 15px 20px;
-    min-width: 80px;
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    transition: transform 0.3s ease;
-}
-
-.count-number {
-    font-size: 32px;
-    font-weight: 700;
-    color: white;
-    animation: pulse 1s infinite alternate;
-}
-
-.count-label {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    color: white;
-    margin-top: 4px;
-    font-weight: 600;
-}
-
-/* Flip / pulse animation */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-.calendar-box {
-    background: rgba(255,255,255,0.1); /* subtle white overlay */
-    border: 2px solid white;
-    border-radius: 12px;
-    padding: 15px 20px;
-    min-width: 200px;
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    transition: transform 0.3s ease;
-}
-
-.calendar-month {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-    font-size: 14px;
-}
-
-.calendar-days div {
-    padding: 6px 0;
-    border-radius: 6px;
-    transition: transform 0.2s ease;
-}
-
-.calendar-days div.today {
-    background: white;
-    color: #0b132b;
-    font-weight: 700;
-}
-
-.calendar-days div:hover {
-    transform: scale(1.1);
-    cursor: default;
-}
-
-/* Smaller Countdown Styling */
-#countdown {
-  width: 55vw;
-  max-width: 400px;
-  margin: 0 auto 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 12px;
-  padding: 12px 18px;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
-
-.countdown-box {
-  flex: 1;
-  min-width: 55px;
-  padding: 8px 10px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid white;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.count-number {
-  font-size: 18px;   /* smaller main number */
-  font-weight: 500;
-  color: #fff;
-}
-
-.count-label {
-  font-size: 8px;    /* smaller label text */
-  color: #ccc;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #countdown {
-    width: 85vw;
-    padding: 10px;
-    gap: 8px;
-  }
-
-  .count-number {
-    font-size: 16px;
-  }
-
-  .count-label {
-    font-size: 7px;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #countdown {
-    width: 85vw;
-    padding: 10px;
-    gap: 10px;
-  }
-}
-
-/* ✅ Wedding Calendar */
-#wedding-calendar {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 40px;
-  box-sizing: border-box;
-}
-
-.calendar-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid white;
-  border-radius: 20px;
-  padding: 25px;
-  color: white;
-  width: 100%;
-  max-width: 400px; /* same width as countdown */
-  box-sizing: border-box;
-  text-align: center;
-}
-
-/* Month Title */
-.calendar-month {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-/* Calendar grid */
-.calendar-days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  font-size: 14px;
-}
-
-.calendar-days div {
-  padding: 6px 0;
-  border-radius: 6px;
-  transition: transform 0.2s ease;
-}
-
-.calendar-days div.today {
-  background: white;
-  color: #0b132b;
-  font-weight: 700;
-}
-
-.calendar-days div:hover {
-  transform: scale(1.1);
-  cursor: default;
-}
-
-/* ✅ Responsive Fixes */
-@media (max-width: 768px) {
-  .calendar-box {
-    padding: 18px;
-    max-width: 300px; /* shrink proportionally */
-  }
-
-  .calendar-month {
-    font-size: 18px;
-  }
-
-  .calendar-days {
-    gap: 5px;
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .calendar-box {
-    padding: 14px;
-    max-width: 260px;
-    border-radius: 14px;
-  }
-
-  .calendar-month {
-    font-size: 16px;
-  }
-
-  .calendar-days {
-    gap: 3px;
-    font-size: 11px;
-  }
-}
-/* 📱 Extra small screens (phones under 400px wide) */
-@media (max-width: 400px) {
-  .calendar-box {
-    max-width: 220px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-
-  .calendar-month {
-    font-size: 15px;
-  }
-
-  .calendar-days {
-    gap: 2px;
-    font-size: 10px;
-  }
-
-  .calendar-days div {
-    padding: 4px 0;
-  }
-}
-
-/* 💻 Small tablets (under 600px wide) */
-@media (max-width: 600px) and (min-width: 401px) {
-  .calendar-box {
-    max-width: 280px;
-    padding: 16px;
-  }
-
-  .calendar-month {
-    font-size: 17px;
-  }
-
-  .calendar-days {
-    gap: 4px;
-    font-size: 11.5px;
-  }
-}
-
-
+			.countdown-box {
+			background: rgba(255,255,255,0.1); /* subtle white overlay */
+			border: 2px solid white;
+			border-radius: 12px;
+			padding: 15px 20px;
+			min-width: 80px;
+			text-align: center;
+			font-family: 'Cormorant Garamond', serif;
+			transition: transform 0.3s ease;
+			}
+			.count-number {
+			font-size: 32px;
+			font-weight: 700;
+			color: white;
+			animation: pulse 1s infinite alternate;
+			}
+			.count-label {
+			font-size: 12px;
+			letter-spacing: 1.5px;
+			color: white;
+			margin-top: 4px;
+			font-weight: 600;
+			}
+			/* Flip / pulse animation */
+			@keyframes pulse {
+			0% { transform: scale(1); }
+			50% { transform: scale(1.1); }
+			100% { transform: scale(1); }
+			}
+			.calendar-box {
+			background: rgba(255,255,255,0.1); /* subtle white overlay */
+			border: 2px solid white;
+			border-radius: 12px;
+			padding: 15px 20px;
+			min-width: 200px;
+			text-align: center;
+			font-family: 'Cormorant Garamond', serif;
+			transition: transform 0.3s ease;
+			}
+			.calendar-month {
+			font-size: 20px;
+			font-weight: 700;
+			margin-bottom: 15px;
+			}
+			.calendar-days {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 8px;
+			font-size: 14px;
+			}
+			.calendar-days div {
+			padding: 6px 0;
+			border-radius: 6px;
+			transition: transform 0.2s ease;
+			}
+			.calendar-days div.today {
+			background: white;
+			color: #0b132b;
+			font-weight: 700;
+			}
+			.calendar-days div:hover {
+			transform: scale(1.1);
+			cursor: default;
+			}
+			/* Smaller Countdown Styling */
+			#countdown {
+			width: 55vw;
+			max-width: 400px;
+			margin: 0 auto 25px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+			border-radius: 12px;
+			padding: 12px 18px;
+			flex-wrap: wrap;
+			box-sizing: border-box;
+			}
+			.countdown-box {
+			flex: 1;
+			min-width: 55px;
+			padding: 8px 10px;
+			background: rgba(255,255,255,0.1);
+			border: 1px solid white;
+			border-radius: 8px;
+			text-align: center;
+			}
+			.count-number {
+			font-size: 18px;   /* smaller main number */
+			font-weight: 500;
+			color: #fff;
+			}
+			.count-label {
+			font-size: 8px;    /* smaller label text */
+			color: #ccc;
+			text-transform: uppercase;
+			letter-spacing: 0.6px;
+			}
+			/* Responsive */
+			@media (max-width: 768px) {
+			#countdown {
+			width: 85vw;
+			padding: 10px;
+			gap: 8px;
+			}
+			.count-number {
+			font-size: 16px;
+			}
+			.count-label {
+			font-size: 7px;
+			}
+			}
+			/* Responsive */
+			@media (max-width: 768px) {
+			#countdown {
+			width: 85vw;
+			padding: 10px;
+			gap: 10px;
+			}
+			}
+			/* ✅ Wedding Calendar */
+			#wedding-calendar {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin: 0 auto 40px;
+			box-sizing: border-box;
+			}
+			.calendar-box {
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid white;
+			border-radius: 20px;
+			padding: 25px;
+			color: white;
+			width: 100%;
+			max-width: 400px; /* same width as countdown */
+			box-sizing: border-box;
+			text-align: center;
+			}
+			/* Month Title */
+			.calendar-month {
+			font-size: 20px;
+			font-weight: 700;
+			margin-bottom: 15px;
+			}
+			/* Calendar grid */
+			.calendar-days {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 8px;
+			font-size: 14px;
+			}
+			.calendar-days div {
+			padding: 6px 0;
+			border-radius: 6px;
+			transition: transform 0.2s ease;
+			}
+			.calendar-days div.today {
+			background: white;
+			color: #0b132b;
+			font-weight: 700;
+			}
+			.calendar-days div:hover {
+			transform: scale(1.1);
+			cursor: default;
+			}
+			/* ✅ Responsive Fixes */
+			@media (max-width: 768px) {
+			.calendar-box {
+			padding: 18px;
+			max-width: 300px; /* shrink proportionally */
+			}
+			.calendar-month {
+			font-size: 18px;
+			}
+			.calendar-days {
+			gap: 5px;
+			font-size: 12px;
+			}
+			}
+			@media (max-width: 480px) {
+			.calendar-box {
+			padding: 14px;
+			max-width: 260px;
+			border-radius: 14px;
+			}
+			.calendar-month {
+			font-size: 16px;
+			}
+			.calendar-days {
+			gap: 3px;
+			font-size: 11px;
+			}
+			}
+			/* 📱 Extra small screens (phones under 400px wide) */
+			@media (max-width: 400px) {
+			.calendar-box {
+			max-width: 220px;
+			padding: 10px;
+			border-radius: 10px;
+			}
+			.calendar-month {
+			font-size: 15px;
+			}
+			.calendar-days {
+			gap: 2px;
+			font-size: 10px;
+			}
+			.calendar-days div {
+			padding: 4px 0;
+			}
+			}
+			/* 💻 Small tablets (under 600px wide) */
+			@media (max-width: 600px) and (min-width: 401px) {
+			.calendar-box {
+			max-width: 280px;
+			padding: 16px;
+			}
+			.calendar-month {
+			font-size: 17px;
+			}
+			.calendar-days {
+			gap: 4px;
+			font-size: 11.5px;
+			}
+			}
 			#venue {
 			position: relative;
 			background: url('background2.png') no-repeat center center;
@@ -804,34 +767,32 @@
 		<section id="home" class="fullscreen hero">
 			<div class="inner">
 				<img src="home.png" alt="Home" class="home-icon">
-<!-- Countdown Timer -->
-<div id="countdown" style="display:flex; justify-content:center; gap:20px; margin-bottom:40px; flex-wrap:wrap;">
-    <div class="countdown-box">
-        <div class="count-number" id="days">0</div>
-        <div class="count-label">DAYS</div>
-    </div>
-    <div class="countdown-box">
-        <div class="count-number" id="hours">0</div>
-        <div class="count-label">HOURS</div>
-    </div>
-    <div class="countdown-box">
-        <div class="count-number" id="minutes">0</div>
-        <div class="count-label">MINUTES</div>
-    </div>
-    <div class="countdown-box">
-        <div class="count-number" id="seconds">0</div>
-        <div class="count-label">SECONDS</div>
-    </div>
-</div>
-<!-- Calendar -->
-<div id="wedding-calendar" style="text-align:center; margin-top:30px;">
-    <div class="calendar-box">
-        <div class="calendar-month" id="calendar-month">December 2025</div>
-        <div class="calendar-days" id="calendar-days"></div>
-    </div>
-</div>
-
-
+				<!-- Countdown Timer -->
+				<div id="countdown" style="display:flex; justify-content:center; gap:20px; margin-bottom:40px; flex-wrap:wrap;">
+					<div class="countdown-box">
+						<div class="count-number" id="days">0</div>
+						<div class="count-label">DAYS</div>
+					</div>
+					<div class="countdown-box">
+						<div class="count-number" id="hours">0</div>
+						<div class="count-label">HOURS</div>
+					</div>
+					<div class="countdown-box">
+						<div class="count-number" id="minutes">0</div>
+						<div class="count-label">MINUTES</div>
+					</div>
+					<div class="countdown-box">
+						<div class="count-number" id="seconds">0</div>
+						<div class="count-label">SECONDS</div>
+					</div>
+				</div>
+				<!-- Calendar -->
+				<div id="wedding-calendar" style="text-align:center; margin-top:30px;">
+					<div class="calendar-box">
+						<div class="calendar-month" id="calendar-month">December 2025</div>
+						<div class="calendar-days" id="calendar-days"></div>
+					</div>
+				</div>
 				<img src="home1.gif" alt="Home" class="home-icon">
 			</div>
 		</section>
@@ -977,234 +938,235 @@
 			<audio id="bgAudio" src="music.mp3" preload="auto" loop></audio>
 		</footer>
 		<script>
-// ===== Elegant Countdown Timer with Pulse =====
-(function() {
-    const weddingDate = new Date("2025-12-23 15:00:00").getTime();
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-
-    function animateNumber(el) {
-        el.style.transform = "scale(1.2)";
-        setTimeout(() => el.style.transform = "scale(1)", 200);
-    }
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-
-        if (distance < 0) {
-            document.getElementById("countdown").innerHTML = "<div style='color:white; font-size:32px; font-weight:700;'>We're Married!</div>";
-            clearInterval(interval);
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        if(daysEl.textContent != days){ daysEl.textContent = days; animateNumber(daysEl);}
-        if(hoursEl.textContent != hours){ hoursEl.textContent = hours; animateNumber(hoursEl);}
-        if(minutesEl.textContent != minutes){ minutesEl.textContent = minutes; animateNumber(minutesEl);}
-        if(secondsEl.textContent != seconds){ secondsEl.textContent = seconds; animateNumber(secondsEl);}
-    }
-
-    const interval = setInterval(updateCountdown, 1000);
-    updateCountdown();
-})();
-// ===== Wedding Mini Calendar =====
-(function() {
-    const calendarEl = document.getElementById("calendar-days");
-    const monthEl = document.getElementById("calendar-month");
-
-    const weddingDate = new Date("2025-12-23"); // Wedding Date
-
-    const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    const month = weddingDate.getMonth();
-    const year = weddingDate.getFullYear();
-
-    monthEl.textContent = `${monthNames[month]} ${year}`;
-
-    // First day of the month
-    const firstDay = new Date(year, month, 1).getDay(); // 0 = Sunday
-    const lastDate = new Date(year, month + 1, 0).getDate();
-
-    // Fill blank spaces for days before 1st
-    for(let i=0; i<firstDay; i++){
-        const emptyDiv = document.createElement("div");
-        calendarEl.appendChild(emptyDiv);
-    }
-
-    // Fill days
-    for(let day=1; day<=lastDate; day++){
-        const dayDiv = document.createElement("div");
-        dayDiv.textContent = day;
-        if(day === weddingDate.getDate()){
-            dayDiv.classList.add("today");
-        }
-        calendarEl.appendChild(dayDiv);
-    }
-})();
-
-
-			document.addEventListener("DOMContentLoaded", function() {
-			  const menuToggle = document.getElementById("menuToggle");
-			  const navbar = document.getElementById("navbar");
-			  const links = document.querySelectorAll(".navbar a");
+			// ===== Elegant Countdown Timer with Pulse =====
+			(function() {
+			    const weddingDate = new Date("2025-12-23 15:00:00").getTime();
+			    const daysEl = document.getElementById("days");
+			    const hoursEl = document.getElementById("hours");
+			    const minutesEl = document.getElementById("minutes");
+			    const secondsEl = document.getElementById("seconds");
 			
-			  // ===== NAV MENU =====
-			  function openMenu() {
-			    navbar.classList.add("active");
-			    menuToggle.classList.add("open");
-			    menuToggle.setAttribute("aria-expanded", "true");
-			    document.body.style.overflow = "hidden";
-			  }
-			
-			  function closeMenu() {
-			    navbar.classList.remove("active");
-			    menuToggle.classList.remove("open");
-			    menuToggle.setAttribute("aria-expanded", "false");
-			    document.body.style.overflow = "";
-			  }
-			
-			  menuToggle.addEventListener("click", (e) => {
-			    e.stopPropagation();
-			    if (navbar.classList.contains("active")) closeMenu();
-			    else openMenu();
-			  });
-			
-			  links.forEach(link => {
-			    link.addEventListener("click", () => closeMenu());
-			  });
-			
-			  window.addEventListener("click", (e) => {
-			    if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) closeMenu();
-			  });
-			
-			  window.addEventListener("keydown", (e) => {
-			    if (e.key === "Escape") closeMenu();
-			  });
-			
-			  window.addEventListener("resize", () => {
-			    if (window.innerWidth > 768) closeMenu();
-			  });
-			
-			  // ===== POPUPS =====
-			  window.openPopup = function(id, el) {
-			    if (el) {
-			      el.style.transform = "scale(1.03)";
-			      setTimeout(() => el.style.transform = "scale(1)", 200);
-			    }
-			    const popup = document.getElementById(id);
-			    if (popup) {
-			      popup.style.display = "block";
-			      popup.style.opacity = 0;
-			      setTimeout(() => (popup.style.opacity = 1), 10);
-			    }
-			  };
-			
-			  document.querySelectorAll(".popup").forEach(popup => {
-			    const closeBtn = popup.querySelector(".close");
-			    if (closeBtn) {
-			      closeBtn.addEventListener("click", () => {
-			        popup.style.opacity = 0;
-			        setTimeout(() => (popup.style.display = "none"), 200);
-			      });
+			    function animateNumber(el) {
+			        el.style.transform = "scale(1.2)";
+			        setTimeout(() => el.style.transform = "scale(1)", 200);
 			    }
 			
-			    window.addEventListener("click", (event) => {
-			      if (event.target === popup) {
-			        popup.style.opacity = 0;
-			        setTimeout(() => (popup.style.display = "none"), 200);
-			      }
-			    });
-			  });
+			    function updateCountdown() {
+			        const now = new Date().getTime();
+			        const distance = weddingDate - now;
 			
-			  // ===== RSVP POPUP & FORM =====
-			  const envelope = document.querySelector("#rsvp .envelope-icon");
-			  const popup = document.getElementById("rsvpPopup");
-			  const closeBtn = popup?.querySelector(".close");
-			  const form = document.getElementById("rsvp-form");
-			  const confirmation = document.getElementById("rsvp-confirmation");
-			
-			  if (envelope && popup) {
-			    envelope.addEventListener("click", () => {
-			      popup.style.display = "block";
-			      popup.style.opacity = 0;
-			      setTimeout(() => (popup.style.opacity = 1), 10);
-			    });
-			  }
-			
-			  if (closeBtn) {
-			    closeBtn.addEventListener("click", () => {
-			      popup.style.opacity = 0;
-			      setTimeout(() => (popup.style.display = "none"), 200);
-			    });
-			  }
-			
-			  window.addEventListener("click", (event) => {
-			    if (event.target === popup) {
-			      popup.style.opacity = 0;
-			      setTimeout(() => (popup.style.display = "none"), 200);
-			    }
-			  });
-			
-			  // ===== RSVP FORM SUBMISSION =====
-			  if (form) {
-			    form.addEventListener("submit", async (e) => {
-			      e.preventDefault();
-			
-			      const submitBtn = form.querySelector(".rsvp-btn");
-			      submitBtn.disabled = true; // Prevent double submission
-			      submitBtn.textContent = "Submitting...";
-			
-			      const scriptURL = "https://script.google.com/macros/s/AKfycbwen0OHfrCxyTv70qfJAz78p_wDxjXO068F8dOxGPTl9Mb-YNRZSY0droVQUFCcC6zf5w/exec"
-			
-			      try {
-			        const formData = new FormData();
-			        formData.append("name", document.getElementById("full-name").value);
-			        formData.append("attending", document.getElementById("attending").value);
-			        formData.append("message", document.getElementById("message").value);
-			
-			        const response = await fetch(scriptURL, { method: "POST", body: formData });
-			        const result = await response.json();
-			
-			        if (result.status === "success") {
-			          form.style.display = "none";
-			          confirmation.style.display = "block";
-			        } else {
-			          alert("Something went wrong. Please try again.");
-			          console.error(result);
+			        if (distance < 0) {
+			            document.getElementById("countdown").innerHTML = "<div style='color:white; font-size:32px; font-weight:700;'>We're Married!</div>";
+			            clearInterval(interval);
+			            return;
 			        }
-			      } catch (error) {
-			        alert("Error submitting RSVP. Please try again later.");
-			        console.error(error);
-			      } finally {
-			        setTimeout(() => {
-			          submitBtn.disabled = false;
-			          submitBtn.textContent = "Submit";
-			        }, 2000);
-			      }
-			    });
-			  }
 			
-			  // ===== BACKGROUND AUDIO =====
-			  const bgAudio = document.getElementById("bgAudio");
-			  if (bgAudio) {
-			    let audioStarted = false;
-			    const startAudio = () => {
-			      if (!audioStarted) {
-			        bgAudio.play().catch(() => {});
-			        audioStarted = true;
-			      }
-			    };
-			    document.body.addEventListener("scroll", startAudio, { once: true, passive: true });
-			    document.body.addEventListener("click", startAudio, { once: true });
-			    document.body.addEventListener("touchstart", startAudio, { once: true });
-			  }
-			});
+			        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			
+			        if(daysEl.textContent != days){ daysEl.textContent = days; animateNumber(daysEl);}
+			        if(hoursEl.textContent != hours){ hoursEl.textContent = hours; animateNumber(hoursEl);}
+			        if(minutesEl.textContent != minutes){ minutesEl.textContent = minutes; animateNumber(minutesEl);}
+			        if(secondsEl.textContent != seconds){ secondsEl.textContent = seconds; animateNumber(secondsEl);}
+			    }
+			
+			    const interval = setInterval(updateCountdown, 1000);
+			    updateCountdown();
+			})();
+			// ===== Wedding Mini Calendar =====
+			(function() {
+			    const calendarEl = document.getElementById("calendar-days");
+			    const monthEl = document.getElementById("calendar-month");
+			
+			    const weddingDate = new Date("2025-12-23"); // Wedding Date
+			
+			    const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+			    const month = weddingDate.getMonth();
+			    const year = weddingDate.getFullYear();
+			
+			    monthEl.textContent = `${monthNames[month]} ${year}`;
+			
+			    // First day of the month
+			    const firstDay = new Date(year, month, 1).getDay(); // 0 = Sunday
+			    const lastDate = new Date(year, month + 1, 0).getDate();
+			
+			    // Fill blank spaces for days before 1st
+			    for(let i=0; i<firstDay; i++){
+			        const emptyDiv = document.createElement("div");
+			        calendarEl.appendChild(emptyDiv);
+			    }
+			
+			    // Fill days
+			    for(let day=1; day<=lastDate; day++){
+			        const dayDiv = document.createElement("div");
+			        dayDiv.textContent = day;
+			        if(day === weddingDate.getDate()){
+			            dayDiv.classList.add("today");
+			        }
+			        calendarEl.appendChild(dayDiv);
+			    }
+			})();
+			
+			
+						document.addEventListener("DOMContentLoaded", function() {
+						  const menuToggle = document.getElementById("menuToggle");
+						  const navbar = document.getElementById("navbar");
+						  const links = document.querySelectorAll(".navbar a");
+						
+						  // ===== NAV MENU =====
+						  function openMenu() {
+						    navbar.classList.add("active");
+						    menuToggle.classList.add("open");
+						    menuToggle.setAttribute("aria-expanded", "true");
+						    document.body.style.overflow = "hidden";
+						  }
+						
+						  function closeMenu() {
+						    navbar.classList.remove("active");
+						    menuToggle.classList.remove("open");
+						    menuToggle.setAttribute("aria-expanded", "false");
+						    document.body.style.overflow = "";
+						  }
+						
+						  menuToggle.addEventListener("click", (e) => {
+						    e.stopPropagation();
+						    if (navbar.classList.contains("active")) closeMenu();
+						    else openMenu();
+						  });
+						
+						  links.forEach(link => {
+						    link.addEventListener("click", () => closeMenu());
+						  });
+						
+						  window.addEventListener("click", (e) => {
+						    if (!navbar.contains(e.target) && !menuToggle.contains(e.target)) closeMenu();
+						  });
+						
+						  window.addEventListener("keydown", (e) => {
+						    if (e.key === "Escape") closeMenu();
+						  });
+						
+						  window.addEventListener("resize", () => {
+						    if (window.innerWidth > 768) closeMenu();
+						  });
+						
+						  // ===== POPUPS =====
+						  window.openPopup = function(id, el) {
+						    if (el) {
+						      el.style.transform = "scale(1.03)";
+						      setTimeout(() => el.style.transform = "scale(1)", 200);
+						    }
+						    const popup = document.getElementById(id);
+						    if (popup) {
+						      popup.style.display = "block";
+						      popup.style.opacity = 0;
+						      setTimeout(() => (popup.style.opacity = 1), 10);
+						    }
+						  };
+						
+						  document.querySelectorAll(".popup").forEach(popup => {
+						    const closeBtn = popup.querySelector(".close");
+						    if (closeBtn) {
+						      closeBtn.addEventListener("click", () => {
+						        popup.style.opacity = 0;
+						        setTimeout(() => (popup.style.display = "none"), 200);
+						      });
+						    }
+						
+						    window.addEventListener("click", (event) => {
+						      if (event.target === popup) {
+						        popup.style.opacity = 0;
+						        setTimeout(() => (popup.style.display = "none"), 200);
+						      }
+						    });
+						  });
+						
+						  // ===== RSVP POPUP & FORM =====
+						  const envelope = document.querySelector("#rsvp .envelope-icon");
+						  const popup = document.getElementById("rsvpPopup");
+						  const closeBtn = popup?.querySelector(".close");
+						  const form = document.getElementById("rsvp-form");
+						  const confirmation = document.getElementById("rsvp-confirmation");
+						
+						  if (envelope && popup) {
+						    envelope.addEventListener("click", () => {
+						      popup.style.display = "block";
+						      popup.style.opacity = 0;
+						      setTimeout(() => (popup.style.opacity = 1), 10);
+						    });
+						  }
+						
+						  if (closeBtn) {
+						    closeBtn.addEventListener("click", () => {
+						      popup.style.opacity = 0;
+						      setTimeout(() => (popup.style.display = "none"), 200);
+						    });
+						  }
+						
+						  window.addEventListener("click", (event) => {
+						    if (event.target === popup) {
+						      popup.style.opacity = 0;
+						      setTimeout(() => (popup.style.display = "none"), 200);
+						    }
+						  });
+						
+						  // ===== RSVP FORM SUBMISSION =====
+						  if (form) {
+						    form.addEventListener("submit", async (e) => {
+						      e.preventDefault();
+						
+						      const submitBtn = form.querySelector(".rsvp-btn");
+						      submitBtn.disabled = true; // Prevent double submission
+						      submitBtn.textContent = "Submitting...";
+						
+						      const scriptURL = "https://script.google.com/macros/s/AKfycbwen0OHfrCxyTv70qfJAz78p_wDxjXO068F8dOxGPTl9Mb-YNRZSY0droVQUFCcC6zf5w/exec"
+						
+						      try {
+						        const formData = new FormData();
+						        formData.append("name", document.getElementById("full-name").value);
+						        formData.append("attending", document.getElementById("attending").value);
+						        formData.append("message", document.getElementById("message").value);
+						
+						        const response = await fetch(scriptURL, { method: "POST", body: formData });
+						        const result = await response.json();
+						
+						        if (result.status === "success") {
+						          form.style.display = "none";
+						          confirmation.style.display = "block";
+						        } else {
+						          alert("Something went wrong. Please try again.");
+						          console.error(result);
+						        }
+						      } catch (error) {
+						        alert("Error submitting RSVP. Please try again later.");
+						        console.error(error);
+						      } finally {
+						        setTimeout(() => {
+						          submitBtn.disabled = false;
+						          submitBtn.textContent = "Submit";
+						        }, 2000);
+						      }
+						    });
+						  }
+						
+						  // ===== BACKGROUND AUDIO =====
+						  const bgAudio = document.getElementById("bgAudio");
+						  if (bgAudio) {
+						    let audioStarted = false;
+						    const startAudio = () => {
+						      if (!audioStarted) {
+						        bgAudio.play().catch(() => {});
+						        audioStarted = true;
+						      }
+						    };
+						    document.body.addEventListener("scroll", startAudio, { once: true, passive: true });
+						    document.body.addEventListener("click", startAudio, { once: true });
+						    document.body.addEventListener("touchstart", startAudio, { once: true });
+						  }
+						});
+					
 		</script>
 	</body>
 </html>

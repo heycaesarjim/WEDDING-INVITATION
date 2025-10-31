@@ -408,6 +408,11 @@
 			font-size: 11.5px;
 			}
 			}
+.collage-video {
+  border-radius: 15px;       /* same roundness as your calendar */
+  overflow: hidden;          /* ensures corners stay rounded */
+}
+
 			#venue {
 			position: relative;
 			background: url('background2.png') no-repeat center center;
@@ -445,7 +450,7 @@
 			@media (min-width: 768px) {
 			#venue .venue-row {
 			flex-direction: row;
-			gap: 40px;
+			gap: 80px;
 			}
 			#venue .ceremony-icon,
 			#venue .reception-icon {
@@ -793,7 +798,12 @@
 						<div class="calendar-days" id="calendar-days"></div>
 					</div>
 				</div>
-				<img src="home1.gif" alt="Home" class="home-icon">
+<video class="home-icon collage-video" autoplay muted loop playsinline>
+  <source src="collage.mp4" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+
 			</div>
 		</section>
 		<section id="story" class="fullscreen">
@@ -914,17 +924,21 @@
 			</p>
 			<!-- Social Icons -->
 			<div style="margin-top: 18px;">
-				<a href="https://www.tiktok.com/@cv.atlr" target="_blank" title="Instagram"
+				<a href="https://www.tiktok.com/@cvatelierofficial" target="_blank" title="Instagram"
 					style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
 				<i class="fab fa-tiktok"></i>
 				</a>
-				<a href="https://www.instagram.com/cv.atlr/" target="_blank" title="Instagram"
+				<a href="https://www.instagram.com/cvatelierofficial" target="_blank" title="Instagram"
 					style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
 				<i class="fab fa-instagram"></i>
 				</a>
-				<a href="https://www.facebook.com/profile.php?id=61582475135149" target="_blank" title="Facebook"
+				<a href="https://www.facebook.com/cvatelierofficial" target="_blank" title="Facebook"
 					style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
 				<i class="fab fa-facebook-f"></i>
+				</a>
+				<a href="https://x.com/cvatelier" target="_blank" title="X (Twitter)"
+					style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
+				<i class="fab fa-x-twitter"></i>
 				</a>
 				<a href="mailto:cvatelierofficial@gmail.com" title="Email"
 					style="color:rgba(250,243,224,0.8); margin:0 12px; font-size:20px; text-decoration:none; transition:all 0.3s ease;">
@@ -1166,5 +1180,3 @@
 		</script>
 	</body>
 </html>
-
-

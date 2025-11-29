@@ -762,6 +762,58 @@
 			text-shadow: 0 0 6px rgba(198,166,100,0.5);
 			transform: translateY(-1px);
 			}
+			.separator {
+			width: 100%;
+			height: 150px; /* adjust height to your taste */
+			background-size: cover; /* make it cover entire section */
+			background-position: center; /* center the image */
+			background-repeat: no-repeat;
+			}
+			/* Optional: make it responsive for very small screens */
+			@media (max-width: 768px) {
+			.separator {
+			height: 100px;
+			}
+			}
+			@media (max-width: 480px) {
+			.separator {
+			height: 80px;
+			}
+			}
+			.prenup-separator {
+			display: flex;
+			width: 100%;
+			height: 1000px; /* adjust height */
+			overflow: hidden;
+			}
+			.prenup-image {
+			flex: 1; /* divide equally */
+			background-size: cover; /* cover each section */
+			background-position: center;
+			background-repeat: no-repeat;
+			}
+			/* Optional: responsive adjustment */
+			@media (max-width: 768px) {
+			.prenup-separator {
+			height: 500px;
+			}
+			}
+			@media (max-width: 480px) {
+			.prenup-separator {
+			height: 80px;
+			flex-direction: column; /* stack images vertically on very small screens */
+			}
+			}
+			/* ===== Scroll Slide-Up Animation ===== */
+			.reveal {
+			opacity: 0;
+			transform: translateY(60px);
+			transition: all 0.9s ease-out;
+			}
+			.reveal.active {
+			opacity: 1;
+			transform: translateY(0);
+			}
 		</style>
 	</head>
 	<body>
@@ -787,7 +839,7 @@
 				</nav>
 			</div>
 		</header>
-		<section id="home" class="fullscreen hero">
+		<section id="home" class="fullscreen reveal">
 			<div class="inner">
 				<img src="home.png" alt="Home" class="home-icon">
 				<!-- Countdown Timer -->
@@ -823,26 +875,46 @@
 				</video>
 			</div>
 		</section>
-		<section id="story" class="fullscreen">
+		<!-- Prenup separator section -->
+		<section class="prenup-separator reveal">
+			<div class="prenup-image" style="background-image: url('separator1.jpg');"></div>
+		</section>
+		<section id="story" class="fullscreen reveal">
 			<div class="inner">
 				<img src="story.png" alt="Details" class="story-icon">
 			</div>
 		</section>
-		<section id="entourage" class="fullscreen">
+		<!-- Prenup separator section -->
+		<section class="prenup-separator reveal">
+			<div class="prenup-image" style="background-image: url('separator2.jpg');"></div>
+		</section>
+		<section id="entourage" class="fullscreen reveal">
 			<div class="inner">
 				<img src="entourage.png" alt="Entourage" class="entourage-icon">
 			</div>
 		</section>
-		<section id="details" class="fullscreen">
+		<!-- Prenup separator section -->
+		<section class="prenup-separator reveal">
+			<div class="prenup-image" style="background-image: url('separator3.jpg');"></div>
+		</section>
+		<section id="details" class="fullscreen reveal">
 			<div class="inner">
 				<img src="details.png" alt="Details" class="details-icon">
 			</div>
 		</section>
-		<section id="rsvp" class="fullscreen">
+		<!-- Prenup separator section -->
+		<section class="prenup-separator reveal">
+			<div class="prenup-image" style="background-image: url('separator4.jpg');"></div>
+		</section>
+		<section id="rsvp" class="fullscreen reveal">
 			<div class="inner">
 				<img src="envelope.png" alt="Envelope" class="envelope-icon" style="cursor:pointer;">
 				<img src="doily.png" alt="Doily" class="doily-icon">
 			</div>
+		</section>
+		<!-- Prenup separator section -->
+		<section class="prenup-separator reveal">
+			<div class="prenup-image" style="background-image: url('separator5.jpg');"></div>
 		</section>
 		<!-- RSVP Popup -->
 		<div id="rsvpPopup" class="popup" aria-hidden="true">
@@ -868,7 +940,7 @@
 				</div>
 			</div>
 		</div>
-		<section id="venue" class="fullscreen">
+		<section id="venue" class="fullscreen reveal">
 			<div class="inner">
 				<div class="venue-row">
 					<!-- Ceremony Image -->
@@ -885,6 +957,10 @@
 						onclick="openPopup('mapPopupReception', this)" />
 				</div>
 			</div>
+		</section>
+		<!-- Prenup separator section -->
+		<section class="prenup-separator reveal">
+			<div class="prenup-image" style="background-image: url('separator6.jpg');"></div>
 		</section>
 		<!-- CEREMONY POPUP -->
 		<div id="mapPopupCeremony" class="popup" aria-hidden="true">
@@ -931,7 +1007,7 @@
 			font-size: 15px;
 			letter-spacing: 0.5px;
 			border-top: 1px solid rgba(198,166,100,0.25);
-			">
+			" class= reveal>
 			<img src="cv-logo.png" alt="CV Atelier Logo" style="height:20px; margin:4px 0 8px;">
 			<p style="margin: 6px 0 12px; font-weight:400; opacity:0.9;">
 				Designed by CV Atelier
@@ -1189,6 +1265,21 @@
 						    document.body.addEventListener("touchstart", startAudio, { once: true });
 						  }
 						});
+			document.addEventListener("DOMContentLoaded", () => {
+			 const reveals = document.querySelectorAll(".reveal");
+			
+			 const revealOnScroll = () => {
+			     reveals.forEach(element => {
+			         const rect = element.getBoundingClientRect();
+			         if (rect.top < window.innerHeight - 150) {
+			             element.classList.add("active");
+			         }
+			     });
+			 };
+			
+			 revealOnScroll();        // trigger on load
+			 window.addEventListener("scroll", revealOnScroll);
+			});
 					
 		</script>
 	</body>

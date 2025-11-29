@@ -772,12 +772,12 @@
 			/* Optional: make it responsive for very small screens */
 			@media (max-width: 768px) {
 			.separator {
-			height: 100px;
+			height: 100vh;
 			}
 			}
 			@media (max-width: 480px) {
 			.separator {
-			height: 80px;
+			height: 100vh;
 			}
 			}
 			.prenup-separator {
@@ -792,18 +792,7 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			}
-			/* Optional: responsive adjustment */
-			@media (max-width: 768px) {
-			.prenup-separator {
-			height: 500px;
-			}
-			}
-			@media (max-width: 480px) {
-			.prenup-separator {
-			height: 80px;
-			flex-direction: column; /* stack images vertically on very small screens */
-			}
-			}
+
 			/* ===== Scroll Slide-Up Animation ===== */
 			.reveal {
 			opacity: 0;

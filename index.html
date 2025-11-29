@@ -780,47 +780,41 @@
 			height: 100vh;
 			}
 			}
-/* Prenup Separator - Responsive */
+/* Prenup separator */
 .prenup-separator {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 120vh; /* default for desktop */
   overflow: hidden;
-  min-height: 300px; /* ensures small screens still show enough */
 }
 
 .prenup-image {
   width: 100%;
-  height: auto;             /* scale height automatically */
-  max-height: 70vh;        /* never exceed viewport height */
-  object-fit: cover;        /* image covers container without distortion */
-  display: block;
+  height: 100%;
+  background-size: cover;  /* cover whole area */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Responsive adjustments */
-
-/* Tablets */
+/* Responsive for tablets */
 @media (max-width: 1024px) {
-  .prenup-image {
-    max-height: 50vh;
+  .prenup-separator {
+    height: 50vh;
   }
 }
 
-/* Mobile phones */
+/* Responsive for mobile phones */
 @media (max-width: 768px) {
-  .prenup-image {
-    max-height: 40vh;
+  .prenup-separator {
+    height: 40vh;
   }
 }
 
 /* Extra small phones */
 @media (max-width: 480px) {
-  .prenup-image {
-    max-height: 35vh;
+  .prenup-separator {
+    height: 35vh;
   }
 }
-
 			/* ===== Scroll Slide-Up Animation ===== */
 			.reveal {
 			opacity: 0;
@@ -1301,5 +1295,6 @@
 		</script>
 	</body>
 </html>
+
 
 

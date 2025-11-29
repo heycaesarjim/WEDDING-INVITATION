@@ -780,39 +780,44 @@
 			height: 100vh;
 			}
 			}
-/* Prenup separator */
+/* Prenup Separator - Responsive */
 .prenup-separator {
   width: 100%;
-  height: 100vh; /* default for desktop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  min-height: 300px; /* ensures small screens still show enough */
 }
 
 .prenup-image {
   width: 100%;
-  height: 100%;
-  background-size: cover;  /* cover whole area */
-  background-position: center;
-  background-repeat: no-repeat;
+  height: auto;             /* scale height automatically */
+  max-height: 100vh;        /* never exceed viewport height */
+  object-fit: cover;        /* image covers container without distortion */
+  display: block;
 }
 
-/* Responsive for tablets */
+/* Responsive adjustments */
+
+/* Tablets */
 @media (max-width: 1024px) {
-  .prenup-separator {
-    height: 50vh;
+  .prenup-image {
+    max-height: 50vh;
   }
 }
 
-/* Responsive for mobile phones */
+/* Mobile phones */
 @media (max-width: 768px) {
-  .prenup-separator {
-    height: 40vh;
+  .prenup-image {
+    max-height: 40vh;
   }
 }
 
 /* Extra small phones */
 @media (max-width: 480px) {
-  .prenup-separator {
-    height: 35vh;
+  .prenup-image {
+    max-height: 35vh;
   }
 }
 
@@ -1296,3 +1301,4 @@
 		</script>
 	</body>
 </html>
+
